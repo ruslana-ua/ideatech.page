@@ -241,11 +241,13 @@ h6 {
   font-weight: inherit;
   font-size: inherit
 }
-h1 {
-  font-weight: 700;
-  font-size: 130px;
-  line-height: 120px;
-  letter-spacing: -2px
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  color: var(--accent)
 }
 h2 {
   font-weight: 700;
@@ -821,6 +823,15 @@ body::after {
 .block-content ol li:last-child,
 .block-content ul li:last-child {
   padding: 0 0 0 10px
+}
+.swiper-horizontal > .swiper-scrollbar {
+  position: absolute;
+  top: -14px;
+  right: 0;
+  bottom: 3px;
+  z-index: 3;
+  height: 5px;
+  width: calc(50% - 6px)
 }
 .header {
   position: fixed;
@@ -2004,11 +2015,12 @@ body::after {
   background: #f2f3f5
 }
 .our-products__title--top {
-  width: calc(50% - 16px);
-  text-transform: uppercase
+  width: calc(52% - 16px);
+  text-transform: uppercase;
+  letter-spacing: -.8px
 }
 .our-products__slider {
-  padding: 54px 0 0 0!important;
+  padding: 46px 0 0 0!important;
   overflow: visible!important
 }
 .our-products__slide {
@@ -2051,17 +2063,17 @@ body::after {
   padding: 12px 20px
 }
 .our-products__title {
-  color: var(--accent);
   font-size: 20px;
   font-weight: 600;
   line-height: 27px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden
+  overflow: hidden;
+  transition: all .2s ease-in-out 0s
 }
 .our-products__bottom {
-  padding: 20px 20px 24px 20px
+  padding: 20px 24px 24px 20px
 }
 .our-products__price {
   padding-top: 25px;
@@ -2078,7 +2090,7 @@ body::after {
   text-transform: uppercase
 }
 .our-products__price::before {
-  font-size: 15px;
+  font-size: 24px;
   color: var(--accent)
 }
 .footer {
@@ -2430,15 +2442,6 @@ button.swiper-pagination-bullet {
   position: relative;
   -ms-touch-action: none;
   background: #dfe2e3
-}
-.swiper-horizontal > .swiper-scrollbar {
-  position: absolute;
-  top: 0;
-  right: 1%;
-  bottom: 3px;
-  z-index: 3;
-  height: 5px;
-  width: 50%
 }
 .swiper-vertical > .swiper-scrollbar {
   position: absolute;
@@ -3317,6 +3320,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 @media (max-width:61.99875em) {
+  h2 {
+    font-size: 76px;
+    line-height: 70px
+  }
   .container--mod {
     padding: 0 40px
   }
@@ -3325,6 +3332,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .block-content table tr td:nth-child(2) {
     width: 57%
+  }
+  .swiper-horizontal > .swiper-scrollbar {
+    width: 100%;
+    top: 0
   }
   .header::after {
     content: "";
@@ -3592,6 +3603,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .reviews {
     padding: 22px 0 64px 0
   }
+  .our-products__title--top {
+    width: 100%;
+    padding-bottom: 24px
+  }
+  .our-products__title {
+    -webkit-line-clamp: 3
+  }
   .footer {
     padding: 100px 0 24px 0
   }
@@ -3695,6 +3713,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 @media (max-width:47.99875em) {
+  h2 {
+    font-size: 46px;
+    line-height: 46px;
+    letter-spacing: -.4px
+  }
   [class*=__container] {
     padding: 0 1rem
   }
@@ -3969,8 +3992,26 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .our-products {
     padding: 64px 0
   }
+  .our-products__slider {
+    padding: 28px 0 0 0!important
+  }
   .our-products__image {
-    padding-bottom: 100%
+    padding-bottom: 118%
+  }
+  .our-products__label {
+    padding: 6px 12px;
+    font-size: 20px;
+    line-height: 27px;
+    height: 39px;
+    top: -39px
+  }
+  .our-products__title {
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -.352px
+  }
+  .our-products__bottom {
+    padding: 16px 16px 24px 16px
   }
   .footer {
     padding: 54px 0 28px 0
@@ -4125,6 +4166,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .reviews__more:hover {
     opacity: .7
+  }
+  .our-products__slide .our-products__title:hover {
+    color: var(--accent)
   }
   .swiper-scrollbar-drag:active,
   .swiper-scrollbar-drag:hover {

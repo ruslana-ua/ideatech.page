@@ -6170,13 +6170,18 @@
                             momentumBounce: false
                         }
                     },
+                    480: {
+                        slidesPerView: 1.6,
+                        slidesPerGroup: 2,
+                        spaceBetween: 20
+                    },
                     768: {
-                        slidesPerView: 2.8,
+                        slidesPerView: 1.89,
                         slidesPerGroup: 2,
                         spaceBetween: 20
                     },
                     992: {
-                        slidesPerView: 3.8,
+                        slidesPerView: 2.75,
                         spaceBetween: 20,
                         slidesPerGroup: 2
                     }
