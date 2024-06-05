@@ -11449,10 +11449,12 @@ PERFORMANCE OF THIS SOFTWARE.
         };
         document.addEventListener("DOMContentLoaded", initCopyProductCode);
         window.addEventListener("DOMContentLoaded", (event => {
-            setTimeout((function() {
+            if (document.querySelector(".page-product")) setTimeout((function() {
                 const anchors = document.querySelectorAll('a[href^="#"]');
                 const header = document.querySelector("header").offsetHeight;
-                const heightMin = header + 10;
+                const specsNavWrap = document.querySelector(".specs__nav--wrap");
+                const specsNavHeight = specsNavWrap ? specsNavWrap.offsetHeight : 0;
+                const heightMin = header + specsNavHeight + 10;
                 for (let i = 0; i < anchors.length; i++) anchors[i].addEventListener("click", (e => {
                     e.preventDefault();
                     const href = anchors[i].getAttribute("href");
@@ -11475,21 +11477,30 @@ PERFORMANCE OF THIS SOFTWARE.
                 const scrollSpy = () => {
                     const targets = document.querySelectorAll(".scroll");
                     const options = {
-                        threshold: .25
+                        threshold: .2
                     };
                     if ("IntersectionObserver" in window) {
                         const observer = new IntersectionObserver((entries => {
+                            let closest = null;
+                            let closestDistance = Number.POSITIVE_INFINITY;
                             entries.forEach((entry => {
                                 const elem = entry.target;
                                 const currentNav = document.querySelector(`.specs__link[href='#${elem.id}']`);
                                 if (entry.isIntersecting) {
-                                    document.querySelectorAll(".specs__link.active").forEach((link => {
-                                        link.classList.remove("active");
-                                    }));
-                                    currentNav.classList.add("active");
-                                    if (window.innerWidth < 768) centerActiveLink(currentNav);
+                                    const distance = Math.abs(entry.boundingClientRect.top);
+                                    if (distance < closestDistance) {
+                                        closestDistance = distance;
+                                        closest = currentNav;
+                                    }
                                 }
                             }));
+                            if (closest) {
+                                document.querySelectorAll(".specs__link.active").forEach((link => {
+                                    link.classList.remove("active");
+                                }));
+                                closest.classList.add("active");
+                                if (window.innerWidth < 768) centerActiveLink(closest);
+                            }
                         }), options);
                         targets.forEach((target => observer.observe(target)));
                     }

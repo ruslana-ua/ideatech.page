@@ -1611,6 +1611,9 @@ body::after {
 }
 .specs__nav--wrap {
   background-color: var(--wh);
+  position: absolute;
+  left: 0;
+  height: 87px;
   border-top: 1px solid rgba(0,0,0,.2)
 }
 .specs__nav {
@@ -3499,9 +3502,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     opacity: 1;
     visibility: visible
   }
-  .specs__nav--wrap.fixed .specs__nav {
-    padding: 0 24px
-  }
   .specs__item:nth-child(2) .specs__link {
     border-top: 4px solid var(--text-secondary);
     color: var(--text-secondary)
@@ -3766,6 +3766,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 80px;
     line-height: 86px;
     text-transform: inherit
+  }
+  .page-product .breadcrumb {
+    padding: 141px 0 10px 0
   }
   .breadcrumb__row {
     width: 100%
