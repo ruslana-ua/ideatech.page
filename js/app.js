@@ -11508,7 +11508,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 const centerActiveLink = activeLink => {
                     const navRect = navContainer.getBoundingClientRect();
                     const activeRect = activeLink.getBoundingClientRect();
-                    const offset = activeRect.left + navContainer.scrollLeft - navRect.width / 2 + activeRect.width / 2;
+                    const offset = activeRect.left + navContainer.scrollLeft - navRect.width / 2 + activeRect.width / 2 + 10;
                     navContainer.scrollTo({
                         left: offset,
                         behavior: "smooth"
