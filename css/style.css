@@ -672,8 +672,7 @@ body::after {
   overflow: hidden
 }
 .baron {
-  overflow-y: auto;
-  overflow-x: none
+  overflow-y: auto
 }
 .baron__scroller {
   overflow-x: scroll;
@@ -1049,9 +1048,6 @@ body::after {
   text-transform: uppercase
 }
 .language-mob__radio:checked + label a {
-  opacity: 1
-}
-.language-mob__radio:not(:checked) + label a:hover {
   opacity: 1
 }
 .language-mob__link {
@@ -1562,10 +1558,16 @@ body::after {
   padding: 0 0 20px 0;
   position: relative
 }
+.specs__container {
+  position: relative
+}
 .specs__nav--wrap {
   background-color: var(--wh);
+  width: calc(100% - 48px);
   position: absolute;
-  height: 87px
+  left: 0;
+  height: 87px;
+  border-top: 1px solid rgba(0,0,0,.2)
 }
 .specs__nav {
   display: flex;
@@ -2472,7 +2474,6 @@ body::after {
   margin: 0 0 20px 0
 }
 .info-footer__label {
-  max-width: 212px;
   color: rgba(255,255,255,.6);
   font-weight: 400;
   padding-bottom: 8px
@@ -3430,8 +3431,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   border: 1px solid #fff;
   transition: border-color .25s ease
 }
-.lg-outer .lg-thumb-item.active,
-.lg-outer .lg-thumb-item:hover {
+.lg-outer .lg-thumb-item.active {
   border-color: rgba(0,0,0,.4)
 }
 .lg-outer .lg-thumb-item img {
@@ -3455,7 +3455,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     position: fixed;
     width: 100%;
     height: 87px;
-    top: 78px;
+    top: 77px;
     left: 0;
     z-index: 3;
     box-shadow: 0 -1px 40.8px 0 rgba(0,0,0,.15);
@@ -3814,9 +3814,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     width: 100%;
     position: fixed;
     height: 63px;
-    top: 78px;
+    top: 77px;
     z-index: 3;
     transition: all .2s ease-in-out 0s
+  }
+  .specs__nav--wrap.fixed {
+    box-shadow: 0 -1px 40.8px 0 rgba(0,0,0,.15)
   }
   .specs__nav {
     padding: 0 40px
@@ -4238,18 +4241,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     column-gap: 4px
   }
   .specs__nav {
-    padding: 0 16px
-  }
-  .specs__list {
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-    overflow: scroll;
-    padding-bottom: 0
-  }
-  .specs__list::-webkit-scrollbar {
-    display: none
+    padding: 0 16px;
+    margin: 0 -16px 0 0
   }
   .specs__doc h1,
   .specs__doc h2,
@@ -4579,7 +4572,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     width: 100%
   }
   .info-footer__label {
-    max-width: 100%;
     text-align: center;
     font-size: 16px
   }
@@ -4670,6 +4662,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .header__phone:hover {
     color: var(--accent)
   }
+  .language-mob__radio:not(:checked) + label a:hover {
+    opacity: 1
+  }
   .specs__link:hover:not(.active) {
     color: var(--accent)
   }
@@ -4679,7 +4674,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .reviews__more:hover {
     opacity: .7
   }
-  .our-products__slide .our-products__title:hover {
+  .our-products__slide:hover .our-products__title {
     color: var(--accent)
   }
   .form-contacts__radio--input:not(:checked) + label:hover {
@@ -4689,5 +4684,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .swiper-scrollbar-drag:active,
   .swiper-scrollbar-drag:hover {
     background: var(--accent)
+  }
+  .lg-outer .lg-thumb-item:hover {
+    border-color: rgba(0,0,0,.4)
   }
 }

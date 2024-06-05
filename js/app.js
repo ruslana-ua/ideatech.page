@@ -11746,8 +11746,11 @@ PERFORMANCE OF THIS SOFTWARE.
             function executeScrollToBlock() {
                 const specsNavWrap = document.querySelector(".specs__nav--wrap");
                 const reviewsBlock = document.querySelector(".reviews");
+                const headerBlock = document.querySelector(".header");
                 if (reviewsBlock) {
-                    const offset = specsNavWrap ? specsNavWrap.offsetHeight : 0;
+                    const specsNavWrapHeight = specsNavWrap ? specsNavWrap.offsetHeight : 0;
+                    const headerHeight = headerBlock ? headerBlock.offsetHeight : 0;
+                    const offset = specsNavWrapHeight + headerHeight;
                     const topPosition = reviewsBlock.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({
                         top: topPosition,
