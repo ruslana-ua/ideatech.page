@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240605222906">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240606003509">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -273,28 +273,35 @@
 			</section>
 			<section id="specs-all" class="specs">
 				<div class="specs__container container--mod">
-					<div data-da=".product-mob,991.98,0" class="specs__nav--wrap">
+					<!-- <div data-da=".product-mob,991.98,0" class="specs__nav--wrap">
 						<div class="specs__nav">
-							<ul class="specs__list">
-								<li class="specs__item">
-									<a href="#specs-main" class="specs__link">Огляд</a>
-								</li>
-								<li class="specs__item">
-									<a href="#specs-1" class="specs__link">Характеристики</a>
-								</li>
-								<li class="specs__item">
-									<a href="#specs-2" class="specs__link">документація</a>
-								</li>
-								<li class="specs__item">
-									<a href="#specs-3" class="specs__link">Опис</a>
-								</li>
-								<li class="specs__item">
-									<a href="#specs-4" class="specs__link">Доставка та оплата</a>
-								</li>
-								<li class="specs__item">
-									<a href="#reviews" class="specs__link">Відгуки (24)</a>
-								</li>
-							</ul>
+							<div class="specs__baron baron">
+								<div class="specs__scroller baron__scroller">
+									<ul class="specs__list">
+										<li class="specs__item">
+											<a href="#specs-main" class="specs__link">Огляд</a>
+										</li>
+										<li class="specs__item">
+											<a href="#specs-1" class="specs__link">Характеристики</a>
+										</li>
+										<li class="specs__item">
+											<a href="#specs-2" class="specs__link">документація</a>
+										</li>
+										<li class="specs__item">
+											<a href="#specs-3" class="specs__link">Опис</a>
+										</li>
+										<li class="specs__item">
+											<a href="#specs-4" class="specs__link">Доставка та оплата</a>
+										</li>
+										<li class="specs__item">
+											<a href="#reviews" class="specs__link">Відгуки (24)</a>
+										</li>
+									</ul>
+								</div>
+								<div class="baron__track">
+									<div class="baron__bar"></div>
+								</div>
+							</div>
 							<div class="specs__product product-view">
 								<div class="product-view__block">
 									<div class="product-view__image lazy_image">
@@ -314,7 +321,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="specs__wrapper">
 						<div id="specs-1" class="specs__main main-specs scroll">
 							<aside class="main-specs__side">
@@ -550,38 +557,38 @@
 					<div class="reviews__body">
 						<h4 class="reviews__title">Відгуки</h4>
 						<div class="reviews__wrapper">
-							<div class="reviews__top">
-								<div class="reviews__block fw500">
-									<div class="reviews__info">
-										<div class="reviews__row">
-											<div class="reviews__rating">
-												<div class="reviews__full lazy_image" style="width: 91%;">
-													<img data-=""="img/icons/rating.svg" alt="">
+							<div class="reviews__inner">
+								<div class="reviews__top">
+									<div class="reviews__block fw500">
+										<div class="reviews__info">
+											<div class="reviews__row">
+												<div class="reviews__rating">
+													<div class="reviews__full lazy_image" style="width: 91%;">
+														<img data-src="img/icons/rating.svg" alt="">
+													</div>
+													<div class="reviews__epmty lazy_image">
+														<img data-src="img/icons/rating-empty.svg" alt="">
+													</div>
 												</div>
-												<div class="reviews__epmty lazy_image">
-													<img data-src="img/icons/rating-empty.svg" alt="">
+												<div class="reviews__average text-m">4.5/5</div>
+											</div>
+											<div class="reviews__label">Оцінка користувачів</div>
+										</div>
+										<div class="reviews__recommend recommend-reviews">
+											<div class="recommend-reviews__row">
+												<div class="recommend-reviews__icon _icon-like">
 												</div>
+												<div class="recommend-reviews__average text-m">96%</div>
 											</div>
-											<div class="reviews__average text-m">4.5/5</div>
+											<div class="recommend-reviews__label">Рекомендують</div>
 										</div>
-										<div class="reviews__label">Оцінка користувачів</div>
 									</div>
-									<div class="reviews__recommend recommend-reviews">
-										<div class="recommend-reviews__row">
-											<div class="recommend-reviews__icon _icon-like">
-											</div>
-											<div class="recommend-reviews__average text-m">96%</div>
-										</div>
-										<div class="recommend-reviews__label">Рекомендують</div>
-									</div>
+									<button data-popup="#popup-reviews" type="button" class="reviews__button--btn-wh _icon-arrow-link">написати відгук</button>
 								</div>
-								<button data-popup="#popup-reviews" type="button" class="reviews__button--btn-wh _icon-arrow-link">написати відгук</button>
-							</div>
-							<div class="reviews__total">
-								<div class="reviews__total--text fw500 _icon-chat">24 відгуки</div>
-							</div>
-							<div data-showmore="items" class="reviews__showmore _scroll-active">
-								<div data-showmore-content="4" class="reviews__main main-reviews">
+								<div class="reviews__total">
+									<div class="reviews__total--text fw500 _icon-chat">24 відгуки</div>
+								</div>
+								<div class="reviews__main main-reviews">
 									<div class="main-reviews__item">
 										<div class="main-reviews__top fw500">
 											<div class="main-reviews__block">
@@ -879,13 +886,32 @@
 										</div>
 									</div>
 								</div>
-								<button hidden data-showmore-button type="button" class="reviews__more">
-									<div class="reviews__more--button">
-										<span>Дивитись усі 24 відгуки</span>
-										<span>Сховати</span>
-									</div>
-								</button>
 							</div>
+							<ul class="reviews__pagination pagination text-xs">
+								<a href="" class="pagination__button pagination__button--prev _icon-arrow-link"></a>
+								<li class="pagination__list">
+									<a href="" class="pagination__link pagination__link--active">1</a>
+								</li>
+								<li class="pagination__list">
+									<a href="" class="pagination__link">2</a>
+								</li>
+								<li class="pagination__list">
+									<a href="" class="pagination__link">3</a>
+								</li>
+								<li class="pagination__list pagination__list--hide">
+									<a href="" class="pagination__link">4</a>
+								</li>
+								<li class="pagination__list pagination__list--hide">
+									<a href="" class="pagination__link">5</a>
+								</li>
+								<li class="pagination__list">
+									<div class="pagination__link">...</div>
+								</li>
+								<li class="pagination__list">
+									<a href="" class="pagination__link">24</a>
+								</li>
+								<a href="" class="pagination__button pagination__button--next _icon-arrow-link"></a>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -1179,7 +1205,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240605222906"></script>
+	<script src="js/app.min.js?_v=20240606003509"></script>
 </body>
 
 </html>
