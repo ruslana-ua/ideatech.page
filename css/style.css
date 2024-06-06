@@ -4878,6 +4878,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     color: var(--accent)
   }
   .form-contacts__radio--input:not(:checked) + label:hover {
+    color: var(--wh);
     border: 1px solid var(--accent);
     background-color: var(--accent)
   }
