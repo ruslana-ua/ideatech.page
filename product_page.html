@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240606010701">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240606221045">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -1036,7 +1036,7 @@
 										<label for="category-3" class="form-contacts__label">Сервіс</label>
 									</div>
 									<div class="form-contacts__radio">
-										<input id="category-4" checked type="radio" value="4" name="category" class="form-contacts__radio--input">
+										<input id="category-4" type="radio" value="4" name="category" class="form-contacts__radio--input">
 										<label for="category-4" class="form-contacts__label">Електромонтажні роботи</label>
 									</div>
 								</div>
@@ -1152,7 +1152,7 @@
 									<a href="tel:+380671532797" class="footer__text--mod">+38(067) 153-27-97</a>
 								</div>
 								<div class="info-footer__item">
-									<div class="info-footer__label text-xs">Email</div>
+									<div class="info-footer__label text-xs">Пошта</div>
 									<a href="mailto:hello@ideatech.com" class="footer__text--mod">hello@ideatech.com</a>
 								</div>
 							</div>
@@ -1183,22 +1183,60 @@
 			</div>
 		</footer>
 	</div>
-	<div id="popup" aria-hidden="true" class="popup">
-		<div class="popup__wrapper">
-			<div class="popup__content">
-				<button data-close type="button" class="popup__close">
-					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
-						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
-					</svg>
-				</button>
-				<div class="popup__text">
-					Popup content
-				</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+					<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+				</svg>
+			</button>
+			<div class="popup__text">
+				Popup content
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240606010701"></script>
+</div> -->
+	<div id="popup-reviews" aria-hidden="true" class="popup popup-reviews">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__row">
+					<div class="popup__title fw500">Залишити відгук</div>
+					<button data-close type="button" class="popup__close _icon-close"></button>
+				</div>
+				<form action="" class="popup__reviews-form reviews-form">
+					<div class="reviews-form__wrap">
+						<div class="reviews-form__item reviews-form__item--mod">
+							<div class="reviews-form__label fw500">Оцініть товар*</div>
+							<div class="reviews-form__star-rating star-rating">
+								<input type="radio" name="rating" class="star-rating__input" id="star-rating-5" value="5">
+								<label class="star-rating__ico _icon-star" for="star-rating-5" title="5 out of 5 stars"></label>
+								<input type="radio" name="rating" class="star-rating__input" id="star-rating-4" value="4">
+								<label class="star-rating__ico _icon-star" for="star-rating-4" title="4 out of 5 stars"></label>
+								<input type="radio" name="rating" class="star-rating__input" id="star-rating-3" value="3">
+								<label class="star-rating__ico _icon-star" for="star-rating-3" title="3 out of 5 stars"></label>
+								<input type="radio" name="rating" class="star-rating__input" id="star-rating-2" value="2">
+								<label class="star-rating__ico _icon-star" for="star-rating-2" title="2 out of 5 stars"></label>
+								<input type="radio" name="rating" data-required data-validate class="star-rating__input" id="star-rating-1" value="1">
+								<label class="star-rating__ico _icon-star" for="star-rating-1" title="1 out of 5 stars"></label>
+							</div>
+						</div>
+						<div class="reviews-form__item">
+							<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="reviews-form__input">
+						</div>
+						<div class="reviews-form__item">
+							<textarea name="text" placeholder="Відгук" class="reviews-form__textarea"></textarea>
+						</div>
+					</div>
+					<div class="reviews-form__button--wrap">
+						<button type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240606221045"></script>
 </body>
 
 </html>
