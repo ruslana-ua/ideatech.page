@@ -96,7 +96,7 @@
 					<div class="breadcrumb__baron baron">
 						<ul class="breadcrumb__list fw500 baron__scroller">
 							<li class="breadcrumb__item"><a href="" class="breadcrumb__link">Головна</a></li>
-							<li class="breadcrumb__item"><a href="" class="breadcrumb__link">Послуги</a></li>
+							<li class="breadcrumb__item"><a href="" class="breadcrumb__link">Оренда</a></li>
 							<li class="breadcrumb__item"><a href="" class="breadcrumb__link">Уся продукція</a></li>
 							<li class="breadcrumb__item"><a href="" class="breadcrumb__link">Мобільні електростанції</a></li>
 							<li class="breadcrumb__item"><span class="breadcrumb__active">Дизельний генератор промисловий Strum K100T трифазний з електро та автоматичним запуском</span></li>
@@ -216,9 +216,43 @@
 								</div>
 								<button data-popup="#popup" type="button" class="product-info__button--btn-wh _icon-arrow-link">Замовити</button>
 							</div>
-							<div class="product-info__guarantee product-guarantee">
-								<div class="product-guarantee__title _icon-check">Подвійна гарантія: </div>
-								<div class="product-guarantee__text fw500 text-m">2000 мотогодин / 730 днів</div>
+							<div class="product-info__rent product-rent">
+								<div class="product-rent__wrap">
+									<div class="product-rent__item _icon-calendar">
+										<input name="" data-error="Required Field" placeholder="Орендувати з" data-required data-validate type="text" onmouseenter="(this.type='date')" onblur="(this.type='text')" class="product-rent__input">
+									</div>
+									<div class="product-rent__item _icon-calendar">
+										<input name="" data-error="Required Field" placeholder="Орендувати по" data-required data-validate type="text" onmouseenter="(this.type='date')" onblur="(this.type='text')" class="product-rent__input">
+									</div>
+								</div>
+								<div class="product-rent__text fw500 text-m">Від 5000 ₴</div>
+							</div>
+							<div class="product-info__table product-table">
+								<div class="product-table__baron baron">
+									<div class="product-table__scroller baron__scroller">
+										<div class="product-table__wrap">
+											<div class="product-table__item fw500">
+												<div class="product-table__top _icon-calendar">1 - 2 дні</div>
+												<div class="product-table__bottom _icon-credit-card">1300 ₴</div>
+											</div>
+											<div class="product-table__item fw500">
+												<div class="product-table__top _icon-calendar">3 - 6 днів</div>
+												<div class="product-table__bottom _icon-credit-card">1300 ₴</div>
+											</div>
+											<div class="product-table__item fw500">
+												<div class="product-table__top _icon-calendar">Місяць</div>
+												<div class="product-table__bottom _icon-credit-card">33000 ₴</div>
+											</div>
+											<div class="product-table__item fw500">
+												<div class="product-table__top _icon-procent">Ціна продажу</div>
+												<div class="product-table__bottom _icon-credit-card">333000 ₴</div>
+											</div>
+										</div>
+									</div>
+									<div class="baron__track">
+										<div class="baron__bar"></div>
+									</div>
+								</div>
 							</div>
 							<div class="product-info__specs product-specs fw500">
 								<div class="product-specs__wrapper">
@@ -280,7 +314,7 @@
 									<a href="#specs-main" class="specs__link">Огляд</a>
 								</li>
 								<li class="specs__item">
-									<a href="#specs-1" class="specs__link">Характеристики</a>
+									<a href="#specs-1" class="specs__link">Умови оренди</a>
 								</li>
 								<li class="specs__item">
 									<a href="#specs-2" class="specs__link">документація</a>

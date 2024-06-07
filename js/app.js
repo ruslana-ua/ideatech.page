@@ -5131,7 +5131,7 @@
                         const popup = form.dataset.popupMessage;
                         popup ? modules_flsModules.popup.open(popup) : null;
                     }
-                }), 0);
+                }), 500);
                 formValidate.formClean(form);
                 formLogging(`Форму відправлено!`);
             }
@@ -9467,7 +9467,7 @@
                             momentumBounce: false
                         }
                     },
-                    480: {
+                    580: {
                         slidesPerView: 1.6,
                         slidesPerGroup: 2,
                         spaceBetween: 20
@@ -11558,6 +11558,20 @@ PERFORMANCE OF THIS SOFTWARE.
             };
             moveServicesImage();
             window.addEventListener("resize", moveServicesImage);
+        }));
+        var infoSocials = document.querySelector(".info-socials");
+        if (infoSocials) document.addEventListener("DOMContentLoaded", (function() {
+            var shareButton = document.querySelector(".info-socials__button");
+            if (shareButton && infoSocials) {
+                shareButton.addEventListener("click", (function(e) {
+                    infoSocials.classList.toggle("show");
+                    e.preventDefault();
+                }));
+                document.addEventListener("click", (function(e) {
+                    var isClickInside = infoSocials.contains(e.target);
+                    if (!isClickInside) if (infoSocials.classList.contains("show")) infoSocials.classList.remove("show");
+                }));
+            }
         }));
         window["FLS"] = false;
         menuInit();
