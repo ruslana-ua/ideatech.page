@@ -8343,7 +8343,7 @@
                 disable
             });
         }
-        function create_element_if_not_defined_createElementIfNotDefined(swiper, originalParams, params, checkProps) {
+        function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
             if (swiper.params.createElements) Object.keys(checkProps).forEach((key => {
                 if (!params[key] && params.auto === true) {
                     let element = utils_elementChildren(swiper.el, `.${checkProps[key]}`)[0];
@@ -8357,6 +8357,154 @@
                 }
             }));
             return params;
+        }
+        function Navigation(_ref) {
+            let {swiper, extendParams, on, emit} = _ref;
+            extendParams({
+                navigation: {
+                    nextEl: null,
+                    prevEl: null,
+                    hideOnClick: false,
+                    disabledClass: "swiper-button-disabled",
+                    hiddenClass: "swiper-button-hidden",
+                    lockClass: "swiper-button-lock",
+                    navigationDisabledClass: "swiper-navigation-disabled"
+                }
+            });
+            swiper.navigation = {
+                nextEl: null,
+                prevEl: null
+            };
+            function getEl(el) {
+                let res;
+                if (el && typeof el === "string" && swiper.isElement) {
+                    res = swiper.el.querySelector(el);
+                    if (res) return res;
+                }
+                if (el) {
+                    if (typeof el === "string") res = [ ...document.querySelectorAll(el) ];
+                    if (swiper.params.uniqueNavElements && typeof el === "string" && res && res.length > 1 && swiper.el.querySelectorAll(el).length === 1) res = swiper.el.querySelector(el); else if (res && res.length === 1) res = res[0];
+                }
+                if (el && !res) return el;
+                return res;
+            }
+            function toggleEl(el, disabled) {
+                const params = swiper.params.navigation;
+                el = utils_makeElementsArray(el);
+                el.forEach((subEl => {
+                    if (subEl) {
+                        subEl.classList[disabled ? "add" : "remove"](...params.disabledClass.split(" "));
+                        if (subEl.tagName === "BUTTON") subEl.disabled = disabled;
+                        if (swiper.params.watchOverflow && swiper.enabled) subEl.classList[swiper.isLocked ? "add" : "remove"](params.lockClass);
+                    }
+                }));
+            }
+            function update() {
+                const {nextEl, prevEl} = swiper.navigation;
+                if (swiper.params.loop) {
+                    toggleEl(prevEl, false);
+                    toggleEl(nextEl, false);
+                    return;
+                }
+                toggleEl(prevEl, swiper.isBeginning && !swiper.params.rewind);
+                toggleEl(nextEl, swiper.isEnd && !swiper.params.rewind);
+            }
+            function onPrevClick(e) {
+                e.preventDefault();
+                if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
+                swiper.slidePrev();
+                emit("navigationPrev");
+            }
+            function onNextClick(e) {
+                e.preventDefault();
+                if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
+                swiper.slideNext();
+                emit("navigationNext");
+            }
+            function init() {
+                const params = swiper.params.navigation;
+                swiper.params.navigation = createElementIfNotDefined(swiper, swiper.originalParams.navigation, swiper.params.navigation, {
+                    nextEl: "swiper-button-next",
+                    prevEl: "swiper-button-prev"
+                });
+                if (!(params.nextEl || params.prevEl)) return;
+                let nextEl = getEl(params.nextEl);
+                let prevEl = getEl(params.prevEl);
+                Object.assign(swiper.navigation, {
+                    nextEl,
+                    prevEl
+                });
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
+                const initButton = (el, dir) => {
+                    if (el) el.addEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+                    if (!swiper.enabled && el) el.classList.add(...params.lockClass.split(" "));
+                };
+                nextEl.forEach((el => initButton(el, "next")));
+                prevEl.forEach((el => initButton(el, "prev")));
+            }
+            function destroy() {
+                let {nextEl, prevEl} = swiper.navigation;
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
+                const destroyButton = (el, dir) => {
+                    el.removeEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+                    el.classList.remove(...swiper.params.navigation.disabledClass.split(" "));
+                };
+                nextEl.forEach((el => destroyButton(el, "next")));
+                prevEl.forEach((el => destroyButton(el, "prev")));
+            }
+            on("init", (() => {
+                if (swiper.params.navigation.enabled === false) disable(); else {
+                    init();
+                    update();
+                }
+            }));
+            on("toEdge fromEdge lock unlock", (() => {
+                update();
+            }));
+            on("destroy", (() => {
+                destroy();
+            }));
+            on("enable disable", (() => {
+                let {nextEl, prevEl} = swiper.navigation;
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
+                if (swiper.enabled) {
+                    update();
+                    return;
+                }
+                [ ...nextEl, ...prevEl ].filter((el => !!el)).forEach((el => el.classList.add(swiper.params.navigation.lockClass)));
+            }));
+            on("click", ((_s, e) => {
+                let {nextEl, prevEl} = swiper.navigation;
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
+                const targetEl = e.target;
+                if (swiper.params.navigation.hideOnClick && !prevEl.includes(targetEl) && !nextEl.includes(targetEl)) {
+                    if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
+                    let isHidden;
+                    if (nextEl.length) isHidden = nextEl[0].classList.contains(swiper.params.navigation.hiddenClass); else if (prevEl.length) isHidden = prevEl[0].classList.contains(swiper.params.navigation.hiddenClass);
+                    if (isHidden === true) emit("navigationShow"); else emit("navigationHide");
+                    [ ...nextEl, ...prevEl ].filter((el => !!el)).forEach((el => el.classList.toggle(swiper.params.navigation.hiddenClass)));
+                }
+            }));
+            const enable = () => {
+                swiper.el.classList.remove(...swiper.params.navigation.navigationDisabledClass.split(" "));
+                init();
+                update();
+            };
+            const disable = () => {
+                swiper.el.classList.add(...swiper.params.navigation.navigationDisabledClass.split(" "));
+                destroy();
+            };
+            Object.assign(swiper.navigation, {
+                enable,
+                disable,
+                update,
+                init,
+                destroy
+            });
         }
         function classes_to_selector_classesToSelector(classes) {
             if (classes === void 0) classes = "";
@@ -8551,7 +8699,7 @@
                 if (params.type !== "custom") emit("paginationRender", el[0]);
             }
             function init() {
-                swiper.params.pagination = create_element_if_not_defined_createElementIfNotDefined(swiper, swiper.originalParams.pagination, swiper.params.pagination, {
+                swiper.params.pagination = createElementIfNotDefined(swiper, swiper.originalParams.pagination, swiper.params.pagination, {
                     el: "swiper-pagination"
                 });
                 const params = swiper.params.pagination;
@@ -8857,7 +9005,7 @@
             }
             function init() {
                 const {scrollbar, el: swiperEl} = swiper;
-                swiper.params.scrollbar = create_element_if_not_defined_createElementIfNotDefined(swiper, swiper.originalParams.scrollbar, swiper.params.scrollbar, {
+                swiper.params.scrollbar = createElementIfNotDefined(swiper, swiper.originalParams.scrollbar, swiper.params.scrollbar, {
                     el: "swiper-scrollbar"
                 });
                 const params = swiper.params.scrollbar;
@@ -9481,6 +9629,48 @@
                         slidesPerView: 2.75,
                         spaceBetween: 20,
                         slidesPerGroup: 2
+                    }
+                },
+                on: {}
+            });
+            if (document.querySelector(".product-all__slider")) new swiper_core_Swiper(".product-all__slider", {
+                modules: [ Navigation, Mousewheel, freeMode ],
+                observer: true,
+                autoHeight: true,
+                observeParents: true,
+                spaceBetween: 0,
+                speed: 800,
+                freeMode: {
+                    enabled: true,
+                    sticky: false,
+                    momentumBounce: false
+                },
+                mousewheel: {
+                    enabled: true,
+                    sensitivity: .2,
+                    forceToAxis: true
+                },
+                navigation: {
+                    prevEl: ".swiper-button-prev",
+                    nextEl: ".swiper-button-next"
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2.5,
+                        slidesPerGroup: 2,
+                        freeMode: {
+                            enabled: true,
+                            sticky: true,
+                            momentumBounce: false
+                        }
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 4
+                    },
+                    992: {
+                        slidesPerView: 6,
+                        slidesPerGroup: 5
                     }
                 },
                 on: {}
@@ -11549,11 +11739,11 @@ PERFORMANCE OF THIS SOFTWARE.
                 servicesItems.forEach((item => {
                     const image = item.querySelector(".services__image");
                     const content = item.querySelector(".services__content");
-                    const title = item.querySelector(".services__title");
+                    const top = item.querySelector(".services__top");
                     const wrap = item.querySelector(".services__wrap");
                     if (window.matchMedia("(max-width: 767.98px)").matches) {
-                        if (image && content && title) content.insertBefore(image, title.nextSibling);
-                    } else if (image && wrap) wrap.appendChild(image);
+                        if (image && content && top && !content.contains(image)) content.insertBefore(image, top.nextSibling);
+                    } else if (image && wrap && !wrap.contains(image)) wrap.appendChild(image);
                 }));
             };
             moveServicesImage();
@@ -11572,6 +11762,37 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (!isClickInside) if (infoSocials.classList.contains("show")) infoSocials.classList.remove("show");
                 }));
             }
+        }));
+        document.querySelectorAll("[data-dropdown]").forEach((function(dropDownWrapper) {
+            const dropDownBtn = dropDownWrapper.querySelector("[data-dropdown-button]");
+            const dropDownList = dropDownWrapper.querySelector("[data-dropdown-list]");
+            const dropDownListItems = dropDownList.querySelectorAll("[data-dropdown-item]");
+            dropDownBtn.addEventListener("click", (function(e) {
+                dropDownList.classList.toggle("visible");
+                this.classList.toggle("active");
+            }));
+            dropDownListItems.forEach((function(listItem) {
+                listItem.addEventListener("click", (function(e) {
+                    e.stopPropagation();
+                    dropDownBtn.innerText = this.innerText;
+                    dropDownBtn.setAttribute("data-value", this.dataset.value);
+                    dropDownBtn.focus();
+                    dropDownList.classList.remove("visible");
+                    dropDownBtn.classList.remove("active");
+                }));
+            }));
+            document.addEventListener("click", (function(e) {
+                if (!dropDownBtn.contains(e.target)) {
+                    dropDownBtn.classList.remove("active");
+                    dropDownList.classList.remove("visible");
+                }
+            }));
+            document.addEventListener("keydown", (function(e) {
+                if (e.key === "Tab" || e.key === "Escape") {
+                    dropDownBtn.classList.remove("dropdown__button--active");
+                    dropDownList.classList.remove("dropdown__list--visible");
+                }
+            }));
         }));
         window["FLS"] = false;
         menuInit();
