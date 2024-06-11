@@ -12024,6 +12024,37 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
             }
         }));
+        document.querySelectorAll("[data-select]").forEach((function(dropDownWrapper) {
+            const dropDownBtn = dropDownWrapper.querySelector("[data-select-button]");
+            const dropDownList = dropDownWrapper.querySelector("[data-select-list]");
+            const dropDownListItems = dropDownList.querySelectorAll("[data-select-item]");
+            dropDownBtn.addEventListener("click", (function(e) {
+                dropDownList.classList.toggle("visible");
+                this.classList.toggle("active");
+            }));
+            dropDownListItems.forEach((function(listItem) {
+                listItem.addEventListener("click", (function(e) {
+                    e.stopPropagation();
+                    dropDownBtn.innerText = this.innerText;
+                    dropDownBtn.setAttribute("data-value", this.dataset.value);
+                    dropDownBtn.focus();
+                    dropDownList.classList.remove("visible");
+                    dropDownBtn.classList.remove("active");
+                }));
+            }));
+            document.addEventListener("click", (function(e) {
+                if (!dropDownBtn.contains(e.target)) {
+                    dropDownBtn.classList.remove("active");
+                    dropDownList.classList.remove("visible");
+                }
+            }));
+            document.addEventListener("keydown", (function(e) {
+                if (e.key === "Tab" || e.key === "Escape") {
+                    dropDownBtn.classList.remove("dropdown__button--active");
+                    dropDownList.classList.remove("dropdown__list--visible");
+                }
+            }));
+        }));
         window["FLS"] = false;
         menuInit();
         menuFilters();
