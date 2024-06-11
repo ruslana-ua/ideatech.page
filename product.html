@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240610100045">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240611230421">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -97,7 +97,7 @@
 				</div>
 			</section>
 			<section class="product-all">
-				<div class="product-all__container">
+				<div class="product-all__container container--mod">
 					<div class="product-all__body">
 						<div class="product-all__slider swiper">
 							<div class="product-all__wrapper swiper-wrapper">
@@ -140,105 +140,464 @@
 					</div>
 				</div>
 			</section>
-			<!-- <section class="catalogue">
-				<div class="catalogue__container">
+			<section class="catalogue">
+				<div class="catalogue__container container--mod">
 					<div class="catalogue__top">
 						<h4 class="catalogue__title">Генератори (електростанції)</h4>
-						<div data-scroll="120" data-scroll-show class="catalog__head">
-							<button type="submit" class="catalog__button filters-button _icon-filter">Фільтри</button>
-							<div data-dropdown class="catalog__sort sort">
-								<div class="sort__button-body">
-									<button type="button" data-dropdown-button class="sort__button _icon-arrow-down_2" data-value="asc">Сортувати</button>
+						<div class="catalogue__block">
+							<div data-scroll="120" data-scroll-show class="catalogue__head">
+								<button type="submit" class="catalogue__button filters-button _icon-filter">Фільтри</button>
+							</div>
+							<div class="catalogue__row sort">
+								<div class="sort__title">Сортувати</div>
+								<div data-select class="sort__main">
+									<div class="sort__button--body">
+										<button type="button" data-select-button class="sort__button _icon-arrow-down" data-value="asc"><span>Популярні</span></button>
+									</div>
+									<ul data-select-list class="sort__list">
+										<li data-select-item class="sort__item" data-value="asc">
+											<input id="sort-1" type="radio" value="asc" name="sort" class="sort__input">
+											<label for="sort-1" class="sort__label">Популярні</label>
+										</li>
+										<li data-select-item class="sort__item" data-value="asc">
+											<input id="sort-2" type="radio" value="asc" name="sort" class="sort__input">
+											<label for="sort-2" class="sort__label">Популярні</label>
+										</li>
+										<li data-select-item class="sort__item" data-value="desc">
+											<input id="sort-3" type="radio" value="desc" name="sort" class="sort__input">
+											<label for="sort-3" class="sort__label">Потужність кВт (по зростанню)</label>
+										</li>
+										<li data-select-item class="sort__item" data-value="desc">
+											<input id="sort-4" type="radio" value="desc" name="sort" class="sort__input">
+											<label for="sort-4" class="sort__label">Потужність кВт (за спаданням)</label>
+										</li>
+										<li data-select-item class="sort__item" data-value="desc">
+											<input id="sort-5" type="radio" value="desc" name="sort" class="sort__input">
+											<label for="sort-5" class="sort__label">Ціна (по зростанню)</label>
+										</li>
+										<li data-select-item class="sort__item" data-value="desc">
+											<input id="sort-6" type="radio" value="desc" name="sort" class="sort__input">
+											<label for="sort-6" class="sort__label">Ціна (за спаданням)</label>
+										</li>
+									</ul>
 								</div>
-								<ul data-dropdown-list class="sort__list">
-									<li data-dropdown-item class="sort__item" data-value="asc">
-										<input id="sort-1" type="radio" value="asc" name="sort" class="sort__input">
-										<label for="sort-1" class="sort__label">Популярні</label>
-									</li>
-									<li data-dropdown-item class="sort__item" data-value="asc">
-										<input id="sort-2" type="radio" value="asc" name="sort" class="sort__input">
-										<label for="sort-2" class="sort__label">Популярні</label>
-									</li>
-									<li data-dropdown-item class="sort__item" data-value="desc">
-										<input id="sort-3" type="radio" value="desc" name="sort" class="sort__input">
-										<label for="sort-3" class="sort__label">Потужність кВт (по зростанню)</label>
-									</li>
-									<li data-dropdown-item class="sort__item" data-value="desc">
-										<input id="sort-4" type="radio" value="desc" name="sort" class="sort__input">
-										<label for="sort-4" class="sort__label">Потужність кВт (за спаданням)</label>
-									</li>
-									<li data-dropdown-item class="sort__item" data-value="desc">
-										<input id="sort-5" type="radio" value="desc" name="sort" class="sort__input">
-										<label for="sort-5" class="sort__label">Ціна (по зростанню)</label>
-									</li>
-									<li data-dropdown-item class="sort__item" data-value="desc">
-										<input id="sort-6" type="radio" value="desc" name="sort" class="sort__input">
-										<label for="sort-6" class="sort__label">Ціна (за спаданням)</label>
-									</li>
-								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="catalogue__wrapper">
 						<aside class="catalogue__filter filter">
 							<div class="filter__top top-filter">
-								<div class="top-filter__title _icon-filter">Фільтри</div>
+								<div class="top-filter__block">
+									<div class="top-filter__title _icon-filter">Фільтри</div>
+									<button type="button" class="top-filter__button filters-button _icon-close"></button>
+								</div>
 								<div class="top-filter__row">
-									<button type="button" class="top-filter__item _icon-close">Трифазний (380 В)</button>
-									<button type="button" class="top-filter__item _icon-close">Автозапуск</button>
-									<button type="button" class="top-filter__item _icon-close">Від 10 кВт</button>
-									<button type="button" class="top-filter__item _icon-close">До 24 кВт</button>
+									<button type="button" class="top-filter__item _icon-del">Трифазний (380 В)</button>
+									<button type="button" class="top-filter__item _icon-del">Автозапуск</button>
+									<button type="button" class="top-filter__item _icon-del">Від 10 кВт</button>
+									<button type="button" class="top-filter__item _icon-del">До 24 кВт</button>
 								</div>
 								<button type="submit" class="top-filter__del--all">Очистити всі</button>
 							</div>
-							<div class="filter__main">
-								<div data-spollers class="filter__spollers">
-									<details data-open class="filter__item">
-										<summary class="filter__title _icon-select">Категорія</summary>
-										<div class="filter__body">
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Однофазний (220В) (20)</div>
-												</label>
-											</button>
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Трифазний (380 В) (12)</div>
-												</label>
-											</button>
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Універсальний (220/380 В) (8)</div>
-												</label>
-											</button>
+							<div data-spollers class="filter__spollers">
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Напруга</summary>
+									<div class="filter__body">
+										<button type="button" class="filter__data ocf-selected">
+											<label class="filter__label">
+												<div class="filter__label--text">Однофазний (220В) <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Трифазний (380 В) <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Універсальний (220/380 В) <span>(20)</span></div>
+											</label>
+										</button>
+									</div>
+								</details>
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Потужність. кВт</summary>
+									<div class="filter__body filter__body--mod">
+										<div class="filter__values">
+											<form data-range-filter="price" class="filter__form">
+												<input type="text" maxlength="10" placeholder="Від" class="filter__form--input">
+												<input type="text" maxlength="10" placeholder="До" class="filter__form--input">
+											</form>
 										</div>
-									</details>
-									<details data-open class="filter__item">
-										<summary class="filter__title _icon-select">Потужність. кВт</summary>
-										<div class="filter__body">
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Однофазний (220В) (20)</div>
-												</label>
-											</button>
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Трифазний (380 В) (12)</div>
-												</label>
-											</button>
-											<button type="button" class="filters__data">
-												<label class="filters__label">
-													<div class="filters__label--text">Універсальний (220/380 В) (8)</div>
-												</label>
-											</button>
+									</div>
+								</details>
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Тип запуску</summary>
+									<div class="filter__body">
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Автозапуск <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Ручний стартер <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Електростарт <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Дистанційний з пульта <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Зі смартфону <span>(20)</span></div>
+											</label>
+										</button>
+									</div>
+								</details>
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Тип палива</summary>
+									<div class="filter__body">
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Автозапуск <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Ручний стартер <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Електростарт <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Дистанційний з пульта <span>(20)</span></div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Зі смартфону <span>(20)</span></div>
+											</label>
+										</button>
+									</div>
+								</details>
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Витрати палива г/кВт·г</summary>
+									<div class="filter__body filter__body--mod">
+										<div class="filter__values">
+											<form data-range-filter="price" class="filter__form">
+												<input type="text" maxlength="10" placeholder="Від" class="filter__form--input">
+												<input type="text" maxlength="10" placeholder="До" class="filter__form--input">
+											</form>
 										</div>
-									</details>
-								</div>
+									</div>
+								</details>
+								<details data-open class="filter__item">
+									<summary class="filter__title _icon-select">Тип установки</summary>
+									<div class="filter__body">
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Пересувальні (на колесах) (10)</div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Портативні (переносні) (5)</div>
+											</label>
+										</button>
+										<button type="button" class="filter__data">
+											<label class="filter__label">
+												<div class="filter__label--text">Стаціонарні (2)</div>
+											</label>
+										</button>
+									</div>
+								</details>
+							</div>
+							<div class="filter__bottom">
+								<button type="button" class="filter__button--btn-accent disabled">застосувати</button>
 							</div>
 						</aside>
+						<div class="catalogue__product product-catalogue">
+							<div class="product-catalogue__wrapper">
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<div class="product-catalogue__banner product-banner">
+									<div class="product-banner__content fw500">
+										<div class="product-banner__block text-s">
+											<div class="product-banner__top">Спеціальна пропозиція</div>
+											<div class="product-banner__bottom">*Пропозиція діє на бренд STRUM</div>
+										</div>
+										<div class="product-banner__title  text-l">Придбайте генератор сьогодні — оплатіть через 180 днів</div>
+									</div>
+									<div class="product-banner__image lazy_image">
+										<img data-src="img/products/banner_1.webp" alt="">
+									</div>
+								</div>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+								<a href="" class="our-products__slide swiper-slide">
+									<div class="our-products__top">
+										<div class="our-products__image lazy_image">
+											<img data-src="img/products/product_01.webp" alt="">
+										</div>
+									</div>
+									<div class="our-products__bottom">
+										<div class="our-products__label fw500 text-s">K100T 100кВт</div>
+										<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+										<div class="our-products__row">
+											<div class="our-products__block">
+												<div class="our-products__price--old">800 000 ₴</div>
+												<div class="our-products__price">790 000 ₴</div>
+												<div class="our-products__discount">-20%</div>
+											</div>
+											<div class="our-products__icon _icon-arrow-link"></div>
+										</div>
+									</div>
+									<div class="our-products__info">
+										<div class="our-products__text">Резервна потужність: <span>33 кВт</span></div>
+										<div class="our-products__text">Номінальна потужність: <span> 30.24 кВт</span></div>
+										<div class="our-products__text">Напруга: <span> трифазний (380 В)</span></div>
+										<div class="our-products__text">Вага: <span> 680 кг</span></div>
+										<div class="our-products__text">Тип запуску: <span> електростарт, автозапуск, ручний стартер</span></div>
+										<div class="our-products__text">Час безперервної роботи: <span> 14 год</span></div>
+										<div class="our-products__text">Витрати палива: <span> 4.1 л/год</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="product-catalogue__bottom">
+								<a href="" class="product-catalogue__button--btn">Завантажити більше</a>
+								<ul class="product-catalogue__pagination pagination text-xs">
+									<a href="" class="pagination__button pagination__button--prev _icon-arrow-link"></a>
+									<li class="pagination__list">
+										<a href="" class="pagination__link pagination__link--active">1</a>
+									</li>
+									<li class="pagination__list">
+										<a href="" class="pagination__link">2</a>
+									</li>
+									<li class="pagination__list">
+										<a href="" class="pagination__link">3</a>
+									</li>
+									<li class="pagination__list pagination__list--hide">
+										<a href="" class="pagination__link">4</a>
+									</li>
+									<li class="pagination__list pagination__list--hide">
+										<a href="" class="pagination__link">5</a>
+									</li>
+									<li class="pagination__list">
+										<div class="pagination__link">...</div>
+									</li>
+									<li class="pagination__list">
+										<a href="" class="pagination__link">24</a>
+									</li>
+									<a href="" class="pagination__button pagination__button--next _icon-arrow-link"></a>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-			</section> -->
+			</section>
 			<section class="service-block">
 				<div class="service-block__container">
 					<div class="service-block__body services__body">
@@ -539,7 +898,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240610100045"></script>
+	<script src="js/app.min.js?_v=20240611230421"></script>
 </body>
 
 </html>
