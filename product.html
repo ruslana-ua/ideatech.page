@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240612163800">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240612164752">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -318,11 +318,37 @@
 								<details data-open class="filter__item">
 									<summary class="filter__title _icon-select">Витрати палива г/кВт·г</summary>
 									<div class="filter__body filter__body--mod">
-										<div class="filter__values">
-											<form data-range-filter="price" class="filter__form">
-												<input type="text" maxlength="10" placeholder="Від" class="filter__form--input">
-												<input type="text" maxlength="10" placeholder="До" class="filter__form--input">
-											</form>
+										<div class="filter__select">
+											<select name="form[]" data-class-modif="filter">
+												<option value="" disabled selected hidden>Від</option>
+												<option value="1">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+											</select>
+											<select name="form[]" data-class-modif="filter">
+												<option value="" disabled selected hidden>До</option>
+												<option value="1">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+											</select>
 										</div>
 									</div>
 								</details>
@@ -331,17 +357,17 @@
 									<div class="filter__body">
 										<button type="button" class="filter__data">
 											<label class="filter__label">
-												<div class="filter__label--text">Пересувальні (на колесах) (10)</div>
+												<div class="filter__label--text">Пересувальні (на колесах) <span>(10)</span></div>
 											</label>
 										</button>
 										<button type="button" class="filter__data">
 											<label class="filter__label">
-												<div class="filter__label--text">Портативні (переносні) (5)</div>
+												<div class="filter__label--text">Портативні (переносні) <span>(5)</span></div>
 											</label>
 										</button>
 										<button type="button" class="filter__data">
 											<label class="filter__label">
-												<div class="filter__label--text">Стаціонарні (2)</div>
+												<div class="filter__label--text">Стаціонарні <span>(2)</span></div>
 											</label>
 										</button>
 									</div>
@@ -922,7 +948,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240612163800"></script>
+	<script src="js/app.min.js?_v=20240612164752"></script>
 </body>
 
 </html>
