@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240612164752">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240613123430">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -199,9 +199,9 @@
 								</div>
 								<button type="submit" class="top-filter__del--all">Очистити всі</button>
 							</div>
-							<div data-spollers class="filter__spollers">
+							<div data-spollers data-one-select class="filter__spollers">
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Напруга</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Напруга</summary>
 									<div class="filter__body">
 										<button type="button" class="filter__data ocf-selected">
 											<label class="filter__label">
@@ -221,7 +221,7 @@
 									</div>
 								</details>
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Потужність. кВт</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Потужність. кВт</summary>
 									<div class="filter__body filter__body--mod">
 										<div class="filter__select">
 											<select name="form[]" data-class-modif="filter">
@@ -256,7 +256,7 @@
 									</div>
 								</details>
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Тип запуску</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Тип запуску</summary>
 									<div class="filter__body">
 										<button type="button" class="filter__data">
 											<label class="filter__label">
@@ -286,7 +286,7 @@
 									</div>
 								</details>
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Тип палива</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Тип палива</summary>
 									<div class="filter__body">
 										<button type="button" class="filter__data">
 											<label class="filter__label">
@@ -316,12 +316,16 @@
 									</div>
 								</details>
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Витрати палива г/кВт·г</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Витрати палива г/кВт·г</summary>
 									<div class="filter__body filter__body--mod">
 										<div class="filter__select">
 											<select name="form[]" data-class-modif="filter">
 												<option value="" disabled selected hidden>Від</option>
 												<option value="1">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
 												<option value="2">10</option>
 												<option value="2">10</option>
 												<option value="2">10</option>
@@ -348,12 +352,16 @@
 												<option value="2">10</option>
 												<option value="2">10</option>
 												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
+												<option value="2">10</option>
 											</select>
 										</div>
 									</div>
 								</details>
 								<details data-open class="filter__item">
-									<summary class="filter__title _icon-select">Тип установки</summary>
+									<summary class="filter__title"><span class="filter__title--icon _icon-select"></span>Тип установки</summary>
 									<div class="filter__body">
 										<button type="button" class="filter__data">
 											<label class="filter__label">
@@ -930,7 +938,7 @@
 								<label class="star-rating__ico _icon-star" for="star-rating-3" title="3 out of 5 stars"></label>
 								<input type="radio" name="rating" class="star-rating__input" id="star-rating-2" value="2">
 								<label class="star-rating__ico _icon-star" for="star-rating-2" title="2 out of 5 stars"></label>
-								<input type="radio" name="rating" data-required data-validate class="star-rating__input" id="star-rating-1" value="1">
+								<input type="radio" name="rating" data-error="Поле є обовʼязковим для заповнення" data-required data-validate class="star-rating__input" id="star-rating-1" value="1">
 								<label class="star-rating__ico _icon-star" for="star-rating-1" title="1 out of 5 stars"></label>
 							</div>
 						</div>
@@ -942,13 +950,14 @@
 						</div>
 					</div>
 					<div class="reviews-form__button--wrap">
-						<button data-popup="#popup-thanks" type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button>
+						<button type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button>
+						<!-- <button data-popup="#popup-thanks" type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button> -->
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240612164752"></script>
+	<script src="js/app.min.js?_v=20240613123430"></script>
 </body>
 
 </html>
