@@ -2950,8 +2950,6 @@ body::after {
   border: 1px solid rgba(0,0,0,.2)
 }
 .product-top__title--top {
-  width: -webkit-max-content;
-  width: max-content;
   position: relative
 }
 .product-top__title--top::before {
@@ -5994,7 +5992,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .product-top__title--top::before {
     width: 113px;
     height: 113px;
-    right: -101px;
+    right: 0;
     top: -20px
   }
   .product-all {
