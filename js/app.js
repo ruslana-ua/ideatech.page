@@ -10309,6 +10309,64 @@
                 },
                 on: {}
             });
+            if (document.querySelector(".our-projects__slider")) new swiper_core_Swiper(".our-projects__slider", {
+                modules: [ Scrollbar, Mousewheel, freeMode, Navigation ],
+                observer: true,
+                autoHeight: true,
+                observeParents: true,
+                speed: 800,
+                freeMode: {
+                    enabled: true,
+                    sticky: false,
+                    momentumBounce: false
+                },
+                mousewheel: {
+                    enabled: true,
+                    sensitivity: .2,
+                    forceToAxis: true
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    draggable: true
+                },
+                navigation: {
+                    prevEl: ".swiper-button-prev",
+                    nextEl: ".swiper-button-next"
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.05,
+                        slidesPerGroup: 1,
+                        spaceBetween: 16,
+                        freeMode: {
+                            enabled: true,
+                            sticky: true,
+                            momentumBounce: false
+                        }
+                    },
+                    768: {
+                        slidesPerView: 1.21,
+                        slidesPerGroup: 1,
+                        spaceBetween: 100
+                    },
+                    992: {
+                        slidesPerView: 1.21,
+                        slidesPerGroup: 1,
+                        spaceBetween: 166
+                    }
+                },
+                on: {
+                    init: function(swiper) {
+                        const allSlides = document.querySelector(".our-projects__fraction--all");
+                        const allSlidesItems = document.querySelectorAll(".our-projects__slide:not(.swiper-slide-duplicate)");
+                        allSlides.innerHTML = allSlidesItems.length;
+                    },
+                    transitionEnd: function(swiper) {
+                        const currentSlide = document.querySelector(".our-projects__fraction--current");
+                        currentSlide.innerHTML = swiper.realIndex + 1;
+                    }
+                }
+            });
         }
         window.addEventListener("load", (function(e) {
             initSliders();
