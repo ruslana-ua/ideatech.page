@@ -10245,8 +10245,8 @@
                     forceToAxis: true
                 },
                 navigation: {
-                    prevEl: ".swiper-button-prev",
-                    nextEl: ".swiper-button-next"
+                    prevEl: ".product-all__swiper-button-prev",
+                    nextEl: ".product-all__swiper-button-next"
                 },
                 breakpoints: {
                     0: {
@@ -10360,6 +10360,10 @@
                         const allSlides = document.querySelector(".our-projects__fraction--all");
                         const allSlidesItems = document.querySelectorAll(".our-projects__slide:not(.swiper-slide-duplicate)");
                         allSlides.innerHTML = allSlidesItems.length;
+                    },
+                    slideChange: function(swiper) {
+                        const currentSlide = document.querySelector(".our-projects__fraction--current");
+                        currentSlide.innerHTML = swiper.realIndex + 1;
                     },
                     transitionEnd: function(swiper) {
                         const currentSlide = document.querySelector(".our-projects__fraction--current");
@@ -12276,18 +12280,14 @@ PERFORMANCE OF THIS SOFTWARE.
             document.body.classList.remove("load");
         }));
         document.addEventListener("DOMContentLoaded", (function() {
-            var pageServicesElement = document.querySelector(".main-dark");
+            var pageServicesElement = document.querySelector(".menu-dark");
             if (pageServicesElement) document.documentElement.classList.add("dark-menu");
-        }));
-        document.addEventListener("DOMContentLoaded", (function() {
-            var pageServicesElement = document.querySelector(".product-page");
+            pageServicesElement = document.querySelector(".product-page");
             if (pageServicesElement) document.documentElement.classList.add("page-product");
-        }));
-        document.addEventListener("DOMContentLoaded", (function() {
             var catalogueElement = document.querySelector(".catalogue");
             if (catalogueElement) document.documentElement.classList.add("page-catalogue");
-        }));
-        document.addEventListener("DOMContentLoaded", (function() {
+            var productTopMod = document.querySelector(".product-top--mod");
+            if (productTopMod) document.documentElement.classList.add("bg-menu");
             var languageInputs = document.querySelectorAll(".language-mob__radio");
             var lang = document.documentElement.lang;
             for (var i = 0; i < languageInputs.length; i++) {
