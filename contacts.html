@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240618183813">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240619163108">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -98,7 +98,7 @@
 									<div class="contacts__label--main sub-s">Звʼяжіться з нами</div>
 									<h1 class="contacts__title">контакти</h1>
 								</div>
-								<div class="contacts__bottom">
+								<div data-da=".contacts-page__bottom,991.98,0" class="contacts__bottom">
 									<div class="contacts__label text-xs">Звʼяжіться з нами в месенджерах</div>
 									<div class="contacts__socials info-footer__row">
 										<a href="" class="info-footer__contact fw500 text-m _icon-whatsapp">WhatsApp</a>
@@ -109,26 +109,6 @@
 							</div>
 							<form action="" class="contacts__form form-contacts">
 								<div class="form-contacts__label--top text-xs">Заповніть форму і ми звʼяжемось з вами</div>
-								<div class="form-contacts__row--wrap">
-									<div class="form-contacts__row fw500 text-m">
-										<div class="form-contacts__radio">
-											<input id="category-1" type="radio" value="1" name="category" class="form-contacts__radio--input">
-											<label for="category-1" class="form-contacts__label">Продукція</label>
-										</div>
-										<div class="form-contacts__radio">
-											<input id="category-2" type="radio" value="2" name="category" class="form-contacts__radio--input">
-											<label for="category-2" class="form-contacts__label">Оренда</label>
-										</div>
-										<div class="form-contacts__radio">
-											<input id="category-3" type="radio" value="3" name="category" class="form-contacts__radio--input">
-											<label for="category-3" class="form-contacts__label">Сервіс</label>
-										</div>
-										<div class="form-contacts__radio">
-											<input id="category-4" type="radio" value="4" name="category" class="form-contacts__radio--input">
-											<label for="category-4" class="form-contacts__label">Електромонтажні роботи</label>
-										</div>
-									</div>
-								</div>
 								<div class="form-contacts__wrap">
 									<div class="form-contacts__item">
 										<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="form-contacts__input">
@@ -140,7 +120,7 @@
 										<textarea name="text" placeholder="Коментар" class="form-contacts__textarea"></textarea>
 									</div>
 								</div>
-								<button type="submit" class="form-contacts__button--btn-wh _icon-arrow-link">Відправити</button>
+								<button type="submit" class="form-contacts__button--btn _icon-arrow-link">Відправити</button>
 							</form>
 						</div>
 						<div class="contacts-page__bottom">
@@ -155,6 +135,50 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</section>
+			<section class="map">
+				<div class="map__container">
+					<div class="map__wrapper">
+						<div class="map__content">
+							<h4 class="map__title--top">Ми доступні для консультацій та зустрічей особисто.</h4>
+							<div class="map__wrap">
+								<div class="map__address">
+									<div class="map__subtitle text-xs">Головний склад</div>
+									<div class="map__title fw500 text-m">м.Київ, вул. Городецького, 13 м. 01001</div>
+								</div>
+								<a href="https://maps.app.goo.gl/hyZgsJ3TbExZEPSt7" target="_blank" class="map__image">
+									<picture>
+										<source media="(max-width: 767.98px)" srcset="img/main/map-mob.webp" />
+										<source media="(max-width: 991.98px)" srcset="img/main/map-tab.webp" />
+										<source media="(min-width: 991.98px)" srcset="img/main/map-pc.webp" />
+										<img src="img/main/map-pc.webp" alt="" />
+									</picture>
+								</a>
+							</div>
+							<div data-da=".map__wrapper,991.98,1" class="map__bottom--wrap">
+								<div class="map__bottom">
+									<div class="map__item">
+										<div class="map__label text-xs">Головний склад</div>
+										<div class="map__info fw500 text-m">м.Київ, вул. Городецького, 13 м. 01001</div>
+									</div>
+									<div class="map__item">
+										<div class="map__label text-xs">Години роботи</div>
+										<div class="map__info fw500 text-m">Пн-Сб 09:00-19:00</div>
+									</div>
+									<div class="map__item">
+										<div class="map__label text-xs">Офіс</div>
+										<div class="map__info fw500 text-m">м.Київ, вул. Городецького, 13 м. 01001</div>
+									</div>
+									<div class="map__item">
+										<div class="map__label text-xs">Години роботи</div>
+										<div class="map__info fw500 text-m">Пн-Сб 09:00-19:00</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="map__bg"></div>
 					</div>
 				</div>
 			</section>
@@ -367,7 +391,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240618183813"></script>
+	<script src="js/app.min.js?_v=20240619163108"></script>
 </body>
 
 </html>

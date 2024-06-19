@@ -10129,8 +10129,6 @@
         }
         function initSliders() {
             if (document.querySelector(".gallery__slider")) {
-                var galleryMain;
-                var galleryThumbs;
                 var activeIndex = 0;
                 function initSwipers() {
                     if (galleryMain) activeIndex = galleryMain.activeIndex;
@@ -10149,6 +10147,74 @@
                         pagination: {
                             el: ".swiper-pagination",
                             clickable: true
+                        }
+                    };
+                    if (window.innerWidth >= 992) {
+                        galleryThumbs = new swiper_core_Swiper(".gallery__thumbs", {
+                            slidesPerView: 6,
+                            watchOverflow: true,
+                            spaceBetween: 11,
+                            direction: "vertical"
+                        });
+                        swiperParams.thumbs = {
+                            swiper: galleryThumbs
+                        };
+                        swiperParams.slidesPerView = 1;
+                        swiperParams.spaceBetween = 16;
+                        swiperParams.effect = "fade";
+                        swiperParams.fadeEffect = {
+                            crossFade: true
+                        };
+                    } else if (window.innerWidth >= 480) {
+                        swiperParams.slidesPerView = 1;
+                        swiperParams.spaceBetween = 16;
+                        swiperParams.effect = "slide";
+                    }
+                    galleryMain = new swiper_core_Swiper(".gallery__slider", swiperParams);
+                    galleryMain.slideTo(activeIndex, 0, false);
+                }
+                initSwipers();
+            }
+            if (document.querySelector(".gallery__slider--mod")) {
+                var galleryMain;
+                var galleryThumbs;
+                activeIndex = 0;
+                function initSwipers() {
+                    if (galleryMain) activeIndex = galleryMain.activeIndex;
+                    if (galleryMain) galleryMain.destroy(true, true);
+                    if (galleryThumbs) {
+                        galleryThumbs.destroy(true, true);
+                        galleryThumbs = null;
+                    }
+                    let swiperParams = {
+                        modules: [ Navigation, Thumb, EffectFade, Pagination ],
+                        watchOverflow: true,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                        preventInteractionOnTransition: true,
+                        loop: true,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true
+                        },
+                        navigation: {
+                            prevEl: ".product-page__swiper-button-prev",
+                            nextEl: ".product-page__swiper-button-next"
+                        },
+                        on: {
+                            init: function(swiper) {
+                                const allSlides = document.querySelector(".product-page__fraction--all");
+                                const allSlidesItems = document.querySelectorAll(".gallery__slide--mob:not(.swiper-slide-duplicate)");
+                                allSlides.innerHTML = allSlidesItems.length;
+                            },
+                            slideChange: function(swiper) {
+                                const currentSlide = document.querySelector(".product-page__fraction--current");
+                                currentSlide.innerHTML = swiper.realIndex + 1;
+                            },
+                            transitionEnd: function(swiper) {
+                                const currentSlide = document.querySelector(".product-page__fraction--current");
+                                currentSlide.innerHTML = swiper.realIndex + 1;
+                            }
                         }
                     };
                     if (window.innerWidth >= 992) {
@@ -12334,6 +12400,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         };
         document.addEventListener("load", initCopyProductCode);
+        document.addEventListener("DOMContentLoaded", initCopyProductCode);
         window.addEventListener("DOMContentLoaded", (event => {
             if (document.querySelector(".page-product")) setTimeout((function() {
                 const anchors = document.querySelectorAll('a[href^="#"]');
