@@ -428,6 +428,12 @@ textarea:focus,
 textarea:hover {
   border: 1px solid #bcbcbc
 }
+._form-valid input,
+._form-valid textarea,
+input:focus,
+textarea:focus {
+  border: 1px solid var(--accent)
+}
 input:disabled,
 textarea:disabled {
   border: 1px solid #636363;
@@ -436,66 +442,6 @@ textarea:disabled {
 input._form-error,
 textarea._form-error {
   border: 1px solid var(--error)
-}
-.form-contacts__item:not(:first-child) input,
-.form-contacts__item:not(:first-child) textarea,
-.reviews-form__item:not(:first-child) input,
-.reviews-form__item:not(:first-child) textarea {
-  margin-top: -1px
-}
-._form-valid .form-contacts__item:not(:first-child) input,
-._form-valid .form-contacts__item:not(:first-child) textarea,
-._form-valid .reviews-form__item:not(:first-child) input,
-._form-valid .reviews-form__item:not(:first-child) textarea,
-.form-contacts__item:not(:first-child) input:focus,
-.form-contacts__item:not(:first-child) input:hover,
-.form-contacts__item:not(:first-child) textarea:focus,
-.form-contacts__item:not(:first-child) textarea:hover,
-.reviews-form__item:not(:first-child) input:focus,
-.reviews-form__item:not(:first-child) input:hover,
-.reviews-form__item:not(:first-child) textarea:focus,
-.reviews-form__item:not(:first-child) textarea:hover {
-  border-bottom: 1px solid #bcbcbc
-}
-.form-contacts__item:not(:first-child) input:disabled,
-.form-contacts__item:not(:first-child) textarea:disabled,
-.reviews-form__item:not(:first-child) input:disabled,
-.reviews-form__item:not(:first-child) textarea:disabled {
-  border-bottom: 1px solid #636363;
-  pointer-events: none
-}
-.form-contacts__item:not(:first-child) input._form-error,
-.form-contacts__item:not(:first-child) textarea._form-error,
-.reviews-form__item:not(:first-child) input._form-error,
-.reviews-form__item:not(:first-child) textarea._form-error {
-  border-bottom: 1px solid var(--error)
-}
-._form-valid .form-contacts__item input:last-child,
-._form-valid .form-contacts__item textarea:last-child,
-._form-valid .reviews-form__item input:last-child,
-._form-valid .reviews-form__item textarea:last-child,
-.form-contacts__item input:last-child:focus,
-.form-contacts__item input:last-child:hover,
-.form-contacts__item textarea:last-child:focus,
-.form-contacts__item textarea:last-child:hover,
-.reviews-form__item input:last-child:focus,
-.reviews-form__item input:last-child:hover,
-.reviews-form__item textarea:last-child:focus,
-.reviews-form__item textarea:last-child:hover {
-  border-bottom: 1px solid #bcbcbc
-}
-.form-contacts__item input:last-child:disabled,
-.form-contacts__item textarea:last-child:disabled,
-.reviews-form__item input:last-child:disabled,
-.reviews-form__item textarea:last-child:disabled {
-  border-bottom: 1px solid #636363;
-  pointer-events: none
-}
-.form-contacts__item input:last-child._form-error,
-.form-contacts__item textarea:last-child._form-error,
-.reviews-form__item input:last-child._form-error,
-.reviews-form__item textarea:last-child._form-error {
-  border-bottom: 1px solid var(--error)
 }
 textarea {
   height: 220px!important;
@@ -743,26 +689,12 @@ body::after {
   margin: 0 auto;
   opacity: .4
 }
-.baron,
 .baron-v {
   position: relative;
   overflow: hidden
 }
-.baron {
-  overflow-y: auto
-}
 .baron-v {
   overflow-x: auto
-}
-.baron__scroller {
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  box-sizing: border-box;
-  scrollbar-width: none;
-  border: 0;
-  width: 100%;
-  padding-bottom: 16px;
-  height: 100%
 }
 .baron-v__scroller {
   overflow-y: scroll;
@@ -785,11 +717,10 @@ body::after {
 .baron__track {
   display: none;
   position: absolute;
-  bottom: 0;
+  bottom: 1px;
   right: 0;
   width: 100%;
   height: 4px;
-  border-radius: 4px;
   background-color: #dfe2e3;
   z-index: 1;
   touch-action: none
@@ -801,7 +732,6 @@ body::after {
   right: 0;
   width: 3px;
   height: 100%;
-  border-radius: 40px;
   background-color: #e2e2e2;
   z-index: 1;
   touch-action: none
@@ -838,8 +768,7 @@ body::after {
   z-index: 2;
   width: 3px;
   height: 73px;
-  background-color: #2a2a2a;
-  border-radius: 40px
+  background-color: #2a2a2a
 }
 .baron-v__bar::before {
   content: "";
@@ -1307,9 +1236,6 @@ body::after {
   z-index: 2;
   padding: 85px 0 10px 0
 }
-.breadcrumb__baron {
-  margin-right: -36px
-}
 .breadcrumb__list {
   display: flex;
   align-items: center;
@@ -1340,10 +1266,6 @@ body::after {
   opacity: .7
 }
 .breadcrumb__active {
-  width: 237px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   color: rgba(0,0,0,.6)
 }
 .breadcrumb__row {
@@ -1413,11 +1335,15 @@ body::after {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  color: var(--accent);
   background: #f2f3f5
 }
 .product-page__swiper-button::before {
-  font-size: 15px
+  font-size: 15px;
+  color: var(--accent);
+  transition: all .2s ease-in-out 0s
+}
+.product-page__swiper-button:hover::before {
+  color: #144592
 }
 .product-page__swiper-button-prev::before {
   -webkit-transform: rotate(180deg);
@@ -1843,10 +1769,6 @@ body::after {
   column-gap: 16px;
   max-width: 1278px;
   margin: 0 auto
-}
-.specs__scroller {
-  padding-bottom: 16px;
-  max-height: 63px!important
 }
 .specs__list {
   display: flex;
@@ -2604,7 +2526,7 @@ body::after {
   -moz-column-gap: 32px;
   column-gap: 32px;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(0,0,0,.2)
+  border-bottom: 1px solid rgba(0,0,0,.25)
 }
 .top__wrap {
   position: relative
@@ -2850,7 +2772,7 @@ body::after {
   z-index: 2;
   bottom: 52px;
   right: 52px;
-  transition: all .6s ease-in-out 0s
+  transition: all .3s ease-in-out 0s
 }
 .info-socials__button {
   position: relative;
@@ -2880,11 +2802,13 @@ body::after {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transition: all .6s ease;
+  transition: all .1s ease 0s;
   row-gap: 6px;
-  padding-bottom: 6px
+  padding-bottom: 6px;
+  height: 0
 }
 .show .info-socials__wrap {
+  height: 232px;
   opacity: 1;
   visibility: visible
 }
@@ -3470,7 +3394,8 @@ body::after {
 }
 .top-filter__del--all {
   color: var(--accent);
-  text-decoration: underline
+  text-decoration: underline;
+  font-weight: 400
 }
 .top-filter__del--all:hover {
   opacity: .7
@@ -5136,6 +5061,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 .lg-outer.lg-animate-thumb .lg-thumb {
   transition-timing-function: cubic-bezier(.215,.61,.355,1)
 }
+@media (min-width:47.99875em) {
+  .breadcrumb__active {
+    width: 237px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+}
 @media (min-width:61.99875em) {
   .specs__nav--wrap.fixed {
     position: fixed;
@@ -5322,7 +5255,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .catalogue__top {
     flex-direction: column;
     align-items: flex-start;
-    row-gap: 24px
+    row-gap: 10px;
+    padding-bottom: 14px
   }
   .catalogue__block {
     position: sticky;
@@ -5334,6 +5268,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-column-gap: 32px;
     -moz-column-gap: 32px;
     column-gap: 32px;
+    padding: 14px 0;
     justify-content: space-between;
     z-index: 5
   }
@@ -5722,6 +5657,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .specs__nav {
     padding: 0 40px
+  }
+  .specs__nav .baron__track {
+    left: 40px;
+    background-color: transparent
   }
   .specs__item:first-child {
     display: block
@@ -6348,6 +6287,20 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 12px 16px;
     margin: 0
   }
+  .baron {
+    position: relative;
+    overflow-y: auto
+  }
+  .baron__scroller {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    border: 0;
+    width: 100%;
+    padding-bottom: 16px;
+    height: 100%
+  }
   .container--mod {
     padding: 0 16px
   }
@@ -6419,11 +6372,24 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .language {
     display: none
   }
-  .breadcrumb__baron {
-    margin-right: -20px
+  .breadcrumb__container {
+    margin: 0 -16px
   }
   .breadcrumb__list {
-    padding: 10px 16px 10px 0
+    padding: 10px 16px;
+    overflow-x: scroll;
+    overflow-y: clip;
+    box-sizing: border-box;
+    -webkit-box-orient: horizontal;
+    scrollbar-width: none
+  }
+  .breadcrumb__list::-webkit-scrollbar {
+    width: 0!important;
+    height: 0!important;
+    display: none
+  }
+  .breadcrumb__active {
+    white-space: nowrap
   }
   .product-page {
     padding: 0 0 32px 0
@@ -6493,19 +6459,25 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -moz-column-gap: 4px;
     column-gap: 4px
   }
-  .specs__nav--wrap {
+  .specs__nav {
+    padding: 0 16px;
+    margin: 0 -16px
+  }
+  .specs__nav .baron__track {
+    left: 16px
+  }
+  .specs__list {
+    padding: 0 16px;
     overflow-x: scroll;
     overflow-y: clip;
     box-sizing: border-box;
     -webkit-box-orient: horizontal;
     scrollbar-width: none
   }
-  .specs__nav--wrap::-webkit-scrollbar {
+  .specs__list::-webkit-scrollbar {
+    width: 0!important;
+    height: 0!important;
     display: none
-  }
-  .specs__nav {
-    padding: 0 16px;
-    margin: 0 -16px 0 0
   }
   .specs__doc h1,
   .specs__doc h2,
@@ -6780,8 +6752,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-bottom: 16px
   }
   .form-contacts__row--wrap {
-    margin-right: -16px;
-    margin-left: -16px
+    margin: 0 -16px
   }
   .form-contacts__row {
     -webkit-column-gap: 4px;
@@ -6849,6 +6820,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .info-socials__button::before {
     font-size: 18px
+  }
+  .show .info-socials__wrap {
+    height: 200px
   }
   .info-socials__link {
     width: 44px;

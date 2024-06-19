@@ -4847,30 +4847,32 @@
             }
         }
         var core = __webpack_require__(747);
-        function initBaron(elements, options) {
-            elements.forEach((function(element) {
+        const baronElements = document.querySelectorAll(".baron");
+        function initBaron() {
+            baronElements.forEach((function(element) {
                 core({
-                    ...options,
-                    root: element
+                    direction: "h",
+                    root: element,
+                    scroller: ".baron__scroller",
+                    bar: ".baron__bar"
                 }).autoUpdate();
             }));
         }
-        const baronElements = document.querySelectorAll(".baron");
-        const baronOptions = {
-            direction: "h",
-            scroller: ".baron__scroller",
-            bar: ".baron__bar"
-        };
         window.addEventListener("load", (function() {
-            initBaron(baronElements, baronOptions);
+            if (window.matchMedia("(max-width: 767.98px)").matches) initBaron();
+        }));
+        window.addEventListener("resize", (function() {
+            if (window.matchMedia("(max-width: 767.98px)").matches) initBaron();
         }));
         const baronElementsV = document.querySelectorAll(".baron-v");
-        const baronOptionsV = {
-            scroller: ".baron-v__scroller",
-            bar: ".baron-v__bar"
-        };
-        window.addEventListener("load", (function() {
-            initBaron(baronElementsV, baronOptionsV);
+        baronElementsV.forEach((function(element) {
+            window.addEventListener("load", (function() {
+                core({
+                    root: element,
+                    scroller: ".baron-v__scroller",
+                    bar: ".baron-v__bar"
+                }).autoUpdate();
+            }));
         }));
         class Popup {
             constructor(options) {
