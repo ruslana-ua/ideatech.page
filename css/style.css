@@ -5686,10 +5686,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .specs__nav {
     padding: 0 40px
   }
-  .specs__nav .baron__track {
-    left: 40px;
-    background-color: transparent
-  }
   .specs__item:first-child {
     display: block
   }
@@ -6508,9 +6504,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 0 16px;
     margin: 0 -16px
   }
-  .specs__nav .baron__track {
-    left: 16px
-  }
   .specs__list {
     padding: 0 16px;
     overflow-x: scroll;
@@ -6518,11 +6511,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     box-sizing: border-box;
     -webkit-box-orient: horizontal;
     scrollbar-width: none
-  }
-  .specs__list::-webkit-scrollbar {
-    width: 0!important;
-    height: 0!important;
-    display: none
   }
   .specs__doc h1,
   .specs__doc h2,
