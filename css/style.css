@@ -5308,14 +5308,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     opacity: 1;
     visibility: visible
   }
-  .specs__item:nth-child(2) .specs__link {
-    border-top: 4px solid var(--text-secondary);
-    color: var(--text-secondary)
-  }
-  .specs__item:nth-child(2) .specs__link.active {
-    border-top: 4px solid var(--text-secondary);
-    color: var(--text-secondary)
-  }
   .fixed .specs__item:nth-child(2) .specs__link:not(.active) {
     border-top: 4px solid transparent;
     color: #131516
@@ -5893,14 +5885,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .specs__item:first-child {
     display: block
-  }
-  .specs__item:nth-child(1) .specs__link {
-    border-top: 4px solid var(--text-secondary);
-    color: var(--text-secondary)
-  }
-  .specs__item:nth-child(1) .specs__link.active {
-    border-top: 4px solid var(--text-secondary);
-    color: var(--text-secondary)
   }
   .fixed .specs__item:nth-child(1) .specs__link:not(.active) {
     border-top: 4px solid transparent;

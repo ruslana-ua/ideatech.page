@@ -13193,6 +13193,78 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
             modules_flsModules.gallery = galleyItems;
         }
+        document.addEventListener("DOMContentLoaded", (() => {
+            if (document.querySelector(".specs")) {
+                const links = document.querySelectorAll(".specs__link");
+                const navbar = document.querySelector(".specs__nav--wrap").classList;
+                const activeClass = "fixed";
+                const productPage = document.querySelector(".product-page");
+                const scrollBlocks = document.querySelectorAll(".scroll");
+                let isSmoothScrolling = false;
+                const handleScroll = () => {
+                    if (!isSmoothScrolling) {
+                        const productPageRect = productPage.getBoundingClientRect();
+                        if (window.innerWidth > 991.98) if (productPageRect.bottom < 78) navbar.add(activeClass); else navbar.remove(activeClass); else if (window.scrollY > 0) {
+                            navbar.add(activeClass);
+                            document.documentElement.classList.add("fixed-nav");
+                        } else {
+                            navbar.remove(activeClass);
+                            document.documentElement.classList.remove("fixed-nav");
+                        }
+                    }
+                };
+                window.addEventListener("scroll", handleScroll);
+                const getClosestScrollBlock = () => {
+                    let closestBlock = null;
+                    let closestDistance = 1 / 0;
+                    scrollBlocks.forEach((block => {
+                        const distance = Math.abs(block.getBoundingClientRect().top);
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestBlock = block;
+                        }
+                    }));
+                    return closestBlock;
+                };
+                const setActiveLink = () => {
+                    const closestBlock = getClosestScrollBlock();
+                    const targetId = "#" + closestBlock.id;
+                    links.forEach((link => {
+                        const linkHref = link.getAttribute("href");
+                        if (linkHref === targetId) link.classList.add("active"); else link.classList.remove("active");
+                    }));
+                };
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: .25
+                };
+                const observerCallback = entries => {
+                    entries.forEach((entry => {
+                        if (entry.isIntersecting) setActiveLink();
+                    }));
+                };
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                scrollBlocks.forEach((block => observer.observe(block)));
+                links.forEach((link => {
+                    link.addEventListener("click", (event => {
+                        event.preventDefault();
+                        isSmoothScrolling = true;
+                        links.forEach((link => link.classList.remove("active")));
+                        link.classList.add("active");
+                        const targetId = link.getAttribute("href").substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        targetSection.scrollIntoView({
+                            behavior: "smooth"
+                        });
+                        setTimeout((() => {
+                            isSmoothScrolling = false;
+                        }), 100);
+                    }));
+                }));
+                setActiveLink();
+            }
+        }));
         class DynamicAdapt {
             constructor(type) {
                 this.type = type;
@@ -13379,7 +13451,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 const header = document.querySelector("header").offsetHeight;
                 const specsNavWrap = document.querySelector(".specs__nav--wrap");
                 const specsNavHeight = specsNavWrap ? specsNavWrap.offsetHeight : 0;
-                const heightMin = header + specsNavHeight + 10;
+                const heightMin = header + specsNavHeight;
                 for (let i = 0; i < anchors.length; i++) anchors[i].addEventListener("click", (e => {
                     e.preventDefault();
                     const href = anchors[i].getAttribute("href");
@@ -13391,82 +13463,6 @@ PERFORMANCE OF THIS SOFTWARE.
                     });
                 }));
             }), 250);
-        }));
-        document.addEventListener("DOMContentLoaded", (() => {
-            if (document.querySelector(".specs")) {
-                const navbar = document.querySelector(".specs__nav--wrap").classList;
-                const activeClass = "fixed";
-                const productPage = document.querySelector(".product-page");
-                const header = document.querySelector(".header");
-                const navContainer = document.querySelector(".specs__nav");
-                const scrollSpy = () => {
-                    const targets = document.querySelectorAll(".scroll");
-                    const options = {
-                        threshold: .2
-                    };
-                    if ("IntersectionObserver" in window) {
-                        const observer = new IntersectionObserver((entries => {
-                            let closest = null;
-                            let closestDistance = Number.POSITIVE_INFINITY;
-                            entries.forEach((entry => {
-                                const elem = entry.target;
-                                const currentNav = document.querySelector(`.specs__link[href='#${elem.id}']`);
-                                if (entry.isIntersecting) {
-                                    const distance = Math.abs(entry.boundingClientRect.top);
-                                    if (distance < closestDistance) {
-                                        closestDistance = distance;
-                                        closest = currentNav;
-                                    }
-                                }
-                            }));
-                            if (closest) {
-                                document.querySelectorAll(".specs__link.active").forEach((link => {
-                                    link.classList.remove("active");
-                                }));
-                                closest.classList.add("active");
-                                if (window.innerWidth < 768) centerActiveLink(closest);
-                            }
-                        }), options);
-                        targets.forEach((target => observer.observe(target)));
-                    }
-                };
-                const centerActiveLink = activeLink => {
-                    const navRect = navContainer.getBoundingClientRect();
-                    const activeRect = activeLink.getBoundingClientRect();
-                    const offset = activeRect.left + navContainer.scrollLeft - navRect.width / 2 + activeRect.width / 2 + 10;
-                    navContainer.scrollTo({
-                        left: offset,
-                        behavior: "smooth"
-                    });
-                    localStorage.setItem("navScrollPosition", offset);
-                };
-                const handleScroll = () => {
-                    let productPageRect = productPage.getBoundingClientRect();
-                    header.getBoundingClientRect();
-                    if (window.innerWidth > 991.98) if (productPageRect.bottom < 78) navbar.add(activeClass); else navbar.remove(activeClass); else if (window.scrollY > 0) {
-                        navbar.add(activeClass);
-                        document.documentElement.classList.add("fixed-nav");
-                    } else {
-                        navbar.remove(activeClass);
-                        document.documentElement.classList.remove("fixed-nav");
-                    }
-                };
-                const restoreScrollPosition = () => {
-                    const savedPosition = localStorage.getItem("navScrollPosition");
-                    if (savedPosition) navContainer.scrollTo({
-                        left: parseFloat(savedPosition),
-                        behavior: "auto"
-                    });
-                };
-                window.addEventListener("scroll", handleScroll);
-                const initialCheck = () => {
-                    handleScroll();
-                    restoreScrollPosition();
-                };
-                window.addEventListener("resize", initialCheck);
-                window.addEventListener("load", initialCheck);
-                scrollSpy();
-            }
         }));
         document.addEventListener("DOMContentLoaded", (() => {
             const moveServicesImage = () => {
