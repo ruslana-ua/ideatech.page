@@ -27646,19 +27646,21 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
             }));
         }));
-        const header = document.querySelector(".header");
-        const headerHeight = header.offsetHeight - 62;
         const catalogue = document.querySelector(".catalogue");
-        const catalogueBlockFilter = document.querySelector(".catalogue__block");
-        const fixedFilter = "fixed-filter";
-        const isSmoothScrolling = false;
-        const handleScrollFixed = () => {
-            if (!isSmoothScrolling) {
-                const catalogueRect = catalogue.getBoundingClientRect();
-                if (window.innerWidth <= 1236) if (catalogueRect.top <= headerHeight) catalogueBlockFilter.classList.add(fixedFilter); else catalogueBlockFilter.classList.remove(fixedFilter);
-            }
-        };
-        window.addEventListener("scroll", handleScrollFixed);
+        if (catalogue) {
+            const header = document.querySelector(".header");
+            const headerHeight = header.offsetHeight - 62;
+            const catalogueBlockFilter = document.querySelector(".catalogue__block");
+            const fixedFilter = "fixed-filter";
+            const isSmoothScrolling = false;
+            const handleScrollFixed = () => {
+                if (!isSmoothScrolling) {
+                    const catalogueRect = catalogue.getBoundingClientRect();
+                    if (window.innerWidth <= 1236) if (catalogueRect.top <= headerHeight) catalogueBlockFilter.classList.add(fixedFilter); else catalogueBlockFilter.classList.remove(fixedFilter);
+                }
+            };
+            window.addEventListener("scroll", handleScrollFixed);
+        }
         window["FLS"] = false;
         menuInit();
         menuFilters();
