@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240622103315">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240622120916">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -209,11 +209,14 @@
 							<div class="product-info__rent product-rent">
 								<div class="product-rent__wrap">
 									<div class="product-rent__item _icon-calendar">
-										<input name="" placeholder="Орендувати з" type="text" onclick="(this.type='date')" onblur="(this.type='text')" class="product-rent__input">
+										<input name="dateFrom" placeholder="Орендувати з" type="text" class="product-rent__input input-date">
+										<input name="dateFromPicker" type="date" class="product-rent__input input-date-picker" style="display: none;">
 									</div>
 									<div class="product-rent__item _icon-calendar">
-										<input name="" placeholder="Орендувати по" type="вфеу" onclick="(this.type='date')" onblur="(this.type='text')" class="product-rent__input">
+										<input name="dateTo" placeholder="Орендувати по" type="text" class="product-rent__input input-date">
+										<input name="dateToPicker" type="date" class="product-rent__input input-date-picker" style="display: none;">
 									</div>
+
 								</div>
 								<div class="product-rent__text fw500 text-m">Від 5000 ₴</div>
 							</div>
@@ -1357,7 +1360,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240622103315"></script>
+	<script src="js/app.min.js?_v=20240622120916"></script>
 </body>
 
 </html>

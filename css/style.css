@@ -3143,7 +3143,7 @@ body::after {
   column-gap: 2px;
   padding: 8px 10px;
   font-weight: 400;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid rgba(0,0,0,.18);
   transition: all .2s ease-in-out 0s
 }
@@ -5478,11 +5478,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     row-gap: 10px;
     padding-bottom: 14px
   }
+  .catalogue__block--wrap {
+    width: 100%;
+    position: relative;
+    height: 66px
+  }
   .catalogue__block {
-    position: sticky;
+    position: absolute;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
     display: flex;
     align-items: center;
     -webkit-column-gap: 32px;
@@ -5492,11 +5497,23 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     justify-content: space-between;
     z-index: 5
   }
+  .catalogue__block.fixed-filter {
+    position: fixed;
+    top: 78px;
+    transition: top .5s ease 0s;
+    padding: 14px 24px;
+    background-color: var(--secondary)
+  }
   .catalogue__button {
     display: flex
   }
   .catalogue__button:hover {
     border: 1px solid var(--accent)
+  }
+  .fixed-filter .catalogue__button {
+    color: var(--wh);
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,.3)
   }
   .sort__title {
     display: none
@@ -5508,6 +5525,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .sort__button:hover {
     border: 1px solid var(--accent)
+  }
+  .fixed-filter .sort__button {
+    color: var(--wh);
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,.3)
   }
   .filter {
     position: fixed;
@@ -6110,6 +6132,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .product-all__slide:hover {
     color: var(--accent)
+  }
+  .catalogue__block.fixed-filter {
+    top: 69px;
+    padding: 14px 40px
   }
   .filter__select {
     justify-content: flex-start
@@ -7115,6 +7141,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 32px;
     line-height: 36px;
     letter-spacing: -.64px
+  }
+  .catalogue__block.fixed-filter {
+    padding: 14px 16px
   }
   .filter {
     padding: 0 16px
