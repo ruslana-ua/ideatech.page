@@ -27403,6 +27403,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             navbar.remove(activeClass);
                             document.documentElement.classList.remove("fixed-nav");
                         }
+                        setActiveLink();
                     }
                 };
                 window.addEventListener("scroll", handleScroll);
@@ -27420,6 +27421,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 };
                 const setActiveLink = () => {
                     const closestBlock = getClosestScrollBlock();
+                    if (!closestBlock) return;
                     const targetId = "#" + closestBlock.id;
                     links.forEach((link => {
                         const linkHref = link.getAttribute("href");
@@ -27429,7 +27431,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 const observerOptions = {
                     root: null,
                     rootMargin: "0px",
-                    threshold: .25
+                    threshold: .5
                 };
                 const observerCallback = entries => {
                     entries.forEach((entry => {
@@ -27449,9 +27451,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         targetSection.scrollIntoView({
                             behavior: "smooth"
                         });
-                        setTimeout((() => {
-                            isSmoothScrolling = false;
-                        }), 100);
+                        isSmoothScrolling = false;
                     }));
                 }));
                 setActiveLink();

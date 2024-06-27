@@ -2096,6 +2096,9 @@ body::after {
 .main-specs__block {
   width: calc(53% - 16px)
 }
+.main-specs__button--btn {
+  margin-top: 46px
+}
 .reviews {
   position: relative;
   padding: 20px 0 120px 0
@@ -8118,6 +8121,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .main-specs__text {
     font-size: 14px;
     letter-spacing: -.308px
+  }
+  .main-specs__button--btn {
+    margin-top: 42px
   }
   .reviews__title {
     padding-bottom: 16px;
