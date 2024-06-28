@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240627214828">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240628175001">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -595,65 +595,71 @@
 			</div>
 		</footer>
 	</div>
-	<div id="popup-thanks" aria-hidden="true" class="popup popup-thanks">
+	<div id="popup" aria-hidden="true" class="popup popup-contacts">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="popup__row">
-					<div class="popup__title fw500">Залишити відгук</div>
+					<div class="popup__title fw500">Звʼяжіться з нами</div>
 					<button data-close type="button" class="popup__close _icon-close"></button>
 				</div>
-				<div class="popup__thanks thanks-popup">
-					<div class="thanks-popup__image lazy_image">
-						<img data-src="img/icons/comment-check.svg" alt="">
-					</div>
-					<div class="thanks-popup__title fw500 text-l">Дякуємо за ваш відгук!</div>
-					<div class="thanks-popup__text">
-						<p>Ваш відгук буде опубліковано після перевірки на спам.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="popup-reviews" aria-hidden="true" class="popup popup-reviews">
-		<div class="popup__wrapper">
-			<div class="popup__content">
-				<div class="popup__row">
-					<div class="popup__title fw500">Залишити відгук</div>
-					<button data-close type="button" class="popup__close _icon-close"></button>
-				</div>
-				<form action="" class="popup__reviews-form reviews-form">
-					<div class="reviews-form__wrap">
-						<div class="reviews-form__item reviews-form__item--mod">
-							<div class="reviews-form__label fw500">Оцініть товар*</div>
-							<div class="reviews-form__star-rating star-rating">
-								<input type="radio" name="rating" class="star-rating__input" id="star-rating-5" value="5">
-								<label class="star-rating__ico _icon-star" for="star-rating-5" title="5 out of 5 stars"></label>
-								<input type="radio" name="rating" class="star-rating__input" id="star-rating-4" value="4">
-								<label class="star-rating__ico _icon-star" for="star-rating-4" title="4 out of 5 stars"></label>
-								<input type="radio" name="rating" class="star-rating__input" id="star-rating-3" value="3">
-								<label class="star-rating__ico _icon-star" for="star-rating-3" title="3 out of 5 stars"></label>
-								<input type="radio" name="rating" class="star-rating__input" id="star-rating-2" value="2">
-								<label class="star-rating__ico _icon-star" for="star-rating-2" title="2 out of 5 stars"></label>
-								<input type="radio" name="rating" data-error="Поле є обовʼязковим для заповнення" data-required data-validate class="star-rating__input" id="star-rating-1" value="1">
-								<label class="star-rating__ico _icon-star" for="star-rating-1" title="1 out of 5 stars"></label>
+				<form action="" class="popup__form form-contacts">
+					<div class="form-contacts__label--top fw500">Заповніть форму і ми звʼяжемось з вами найближчим часом</div>
+					<div class="form-contacts__row--wrap">
+						<div class="form-contacts__row fw500 text-m">
+							<div class="form-contacts__radio">
+								<input id="category-5" type="radio" value="1" name="category" class="form-contacts__radio--input">
+								<label for="category-5" class="form-contacts__label">Продукція</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-6" type="radio" value="2" name="category" class="form-contacts__radio--input">
+								<label for="category-6" class="form-contacts__label">Оренда</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-7" type="radio" value="3" name="category" class="form-contacts__radio--input">
+								<label for="category-7" class="form-contacts__label">Сервіс</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-8" type="radio" value="4" name="category" class="form-contacts__radio--input">
+								<label for="category-8" class="form-contacts__label">Електромонтажні роботи</label>
 							</div>
 						</div>
-						<div class="reviews-form__item">
-							<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="reviews-form__input">
+					</div>
+					<div class="form-contacts__wrap">
+						<div class="form-contacts__item">
+							<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="form-contacts__input">
 						</div>
-						<div class="reviews-form__item">
-							<textarea name="text" placeholder="Відгук" class="reviews-form__textarea"></textarea>
+						<div class="form-contacts__item">
+							<input data-error="Поле є обовʼязковим для заповнення" data-required="phone" data-validate name="tel" type="tel" placeholder="Номер телефону*" class="form-contacts__input phone-mask">
 						</div>
 					</div>
-					<div class="reviews-form__button--wrap">
-						<button type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button>
-						<!-- <button data-popup="#popup-thanks" type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button> -->
+					<div class="form-contacts__button--wrap">
+						<button type="submit" class="form-contacts__button--btn _icon-arrow-link">Відправити</button>
 					</div>
 				</form>
+				<div class="popup__contacts contacts-popup">
+					<div class="contacts-popup__socials">
+						<div class="contacts-popup__subtitle fw500">Ми у месенджерах</div>
+						<div class="contacts-popup__row">
+							<a href="" class="contacts-popup__social _icon-whatsapp"></a>
+							<a href="" class="contacts-popup__social _icon-viber"></a>
+							<a href="" class="contacts-popup__social _icon-telegram"></a>
+						</div>
+					</div>
+					<div class="contacts-popup__block fw500">
+						<div class="contacts-popup__item">
+							<div class="contacts-popup__label">Телефон</div>
+							<a href="tel:+380671532797" class="contacts-popup__link _icon-arrow-link">+38(067) 153-27-97</a>
+						</div>
+						<div class="contacts-popup__item">
+							<div class="contacts-popup__label">Пошта</div>
+							<a href="mailto:hello@ideatech.com" class="contacts-popup__link _icon-arrow-link">hello@ideatech.com</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240627214828"></script>
+	<script src="js/app.min.js?_v=20240628175001"></script>
 </body>
 
 </html>

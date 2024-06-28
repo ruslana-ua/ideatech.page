@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240627214828">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240628175001">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -1330,7 +1330,8 @@
 					<div class="popup__title fw500">Залишити відгук</div>
 					<button data-close type="button" class="popup__close _icon-close"></button>
 				</div>
-				<form action="" class="popup__reviews-form reviews-form">
+				<!-- C формы убрать data-dev data-popup-message="#popup-thanks" , прописано для появления popup-thanks-->
+				<form action="" data-dev data-popup-message="#popup-thanks" class="popup__reviews-form reviews-form">
 					<div class="reviews-form__wrap">
 						<div class="reviews-form__item reviews-form__item--mod">
 							<div class="reviews-form__label fw500">Оцініть товар*</div>
@@ -1356,13 +1357,148 @@
 					</div>
 					<div class="reviews-form__button--wrap">
 						<button type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button>
-						<!-- <button data-popup="#popup-thanks" type="submit" class="reviews-form__button--btn _icon-arrow-link">Відправити</button> -->
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240627214828"></script>
+	<div id="popup" aria-hidden="true" class="popup popup-contacts">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__row">
+					<div class="popup__title fw500">Звʼяжіться з нами</div>
+					<button data-close type="button" class="popup__close _icon-close"></button>
+				</div>
+				<form action="" class="popup__form form-contacts">
+					<div class="form-contacts__label--top fw500">Заповніть форму і ми звʼяжемось з вами найближчим часом</div>
+					<div class="form-contacts__row--wrap">
+						<div class="form-contacts__row fw500 text-m">
+							<div class="form-contacts__radio">
+								<input id="category-5" type="radio" value="1" name="category" class="form-contacts__radio--input">
+								<label for="category-5" class="form-contacts__label">Продукція</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-6" type="radio" value="2" name="category" class="form-contacts__radio--input">
+								<label for="category-6" class="form-contacts__label">Оренда</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-7" type="radio" value="3" name="category" class="form-contacts__radio--input">
+								<label for="category-7" class="form-contacts__label">Сервіс</label>
+							</div>
+							<div class="form-contacts__radio">
+								<input id="category-8" type="radio" value="4" name="category" class="form-contacts__radio--input">
+								<label for="category-8" class="form-contacts__label">Електромонтажні роботи</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-contacts__wrap">
+						<div class="form-contacts__item">
+							<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="form-contacts__input">
+						</div>
+						<div class="form-contacts__item">
+							<input data-error="Поле є обовʼязковим для заповнення" data-required="phone" data-validate name="tel" type="tel" placeholder="Номер телефону*" class="form-contacts__input phone-mask">
+						</div>
+					</div>
+					<div class="form-contacts__button--wrap">
+						<button type="submit" class="form-contacts__button--btn _icon-arrow-link">Відправити</button>
+					</div>
+				</form>
+				<div class="popup__contacts contacts-popup">
+					<div class="contacts-popup__socials">
+						<div class="contacts-popup__subtitle fw500">Ми у месенджерах</div>
+						<div class="contacts-popup__row">
+							<a href="" class="contacts-popup__social _icon-whatsapp"></a>
+							<a href="" class="contacts-popup__social _icon-viber"></a>
+							<a href="" class="contacts-popup__social _icon-telegram"></a>
+						</div>
+					</div>
+					<div class="contacts-popup__block fw500">
+						<div class="contacts-popup__item">
+							<div class="contacts-popup__label">Телефон</div>
+							<a href="tel:+380671532797" class="contacts-popup__link _icon-arrow-link">+38(067) 153-27-97</a>
+						</div>
+						<div class="contacts-popup__item">
+							<div class="contacts-popup__label">Пошта</div>
+							<a href="mailto:hello@ideatech.com" class="contacts-popup__link _icon-arrow-link">hello@ideatech.com</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-order" aria-hidden="true" class="popup popup-order">
+		<div class="popup__wrapper">
+			<div class="popup__content popup__content--order">
+				<div class="popup__product">
+					<div class="our-products__label fw500 text-s">K30T 30кВт</div>
+					<div class="our-products__top">
+						<div class="our-products__image lazy_image">
+							<img data-src="img/products/product_01.webp" alt="">
+						</div>
+					</div>
+					<div class="our-products__bottom">
+						<div class="our-products__copy product-copy fw500">
+							<div class="product-copy__wrap">
+								<div class="product-copy__text">Артикул: <span class="product-copy__code"> 00К100Т</span></div>
+							</div>
+							<button type="button" class="product-copy__icon _icon-copy"></button>
+						</div>
+						<div class="our-products__title">Дизельний генератор промисловий Strum трифазний з електро та автоматичним запуском</div>
+						<div class="our-products__row">
+							<div class="our-products__block">
+								<div class="our-products__price--old">1 200 000 ₴</div>
+								<div class="our-products__price">790 000 ₴</div>
+								<div class="our-products__discount">-20%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="popup__wrap">
+					<div class="popup__top">
+						<div data-da=".popup__content--order,991.98,0" class="popup__row">
+							<div class="popup__title fw500">Замовити</div>
+							<button data-close type="button" class="popup__close _icon-close"></button>
+						</div>
+						<form action="" class="popup__form form-contacts">
+							<div class="form-contacts__label--top fw500">Заповніть форму і ми звʼяжемось з вами найближчим часом</div>
+							<div class="form-contacts__wrap">
+								<div class="form-contacts__item">
+									<input data-error="Поле є обовʼязковим для заповнення" data-required="name" data-validate name="name" type="text" placeholder="Ваше імʼя*" class="form-contacts__input">
+								</div>
+								<div class="form-contacts__item">
+									<input data-error="Поле є обовʼязковим для заповнення" data-required="phone" data-validate name="tel" type="tel" placeholder="Номер телефону*" class="form-contacts__input phone-mask">
+								</div>
+							</div>
+							<div class="form-contacts__button--wrap">
+								<button type="submit" class="form-contacts__button--btn-wh _icon-arrow-link">Відправити</button>
+							</div>
+						</form>
+					</div>
+					<div class="popup__contacts contacts-popup">
+						<div class="contacts-popup__socials">
+							<div class="contacts-popup__subtitle fw500">Ми у месенджерах</div>
+							<div class="contacts-popup__row">
+								<a href="" class="contacts-popup__social _icon-whatsapp"></a>
+								<a href="" class="contacts-popup__social _icon-viber"></a>
+								<a href="" class="contacts-popup__social _icon-telegram"></a>
+							</div>
+						</div>
+						<div class="contacts-popup__block fw500">
+							<div class="contacts-popup__item">
+								<div class="contacts-popup__label">Телефон</div>
+								<a href="tel:+380671532797" class="contacts-popup__link _icon-arrow-link">+38(067) 153-27-97</a>
+							</div>
+							<div class="contacts-popup__item">
+								<div class="contacts-popup__label">Пошта</div>
+								<a href="mailto:hello@ideatech.com" class="contacts-popup__link _icon-arrow-link">hello@ideatech.com</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240628175001"></script>
 </body>
 
 </html>
