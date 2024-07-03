@@ -27813,6 +27813,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         const targetId = link.getAttribute("href").substring(1);
                         const targetSection = document.getElementById(targetId);
                         targetSection.scrollIntoView({
+                            top: -20,
                             behavior: "smooth"
                         });
                         isSmoothScrolling = false;

@@ -1105,7 +1105,7 @@ body::after {
 .block-content h2:not(:last-child),
 .block-content h3:not(:last-child),
 .block-content h4:not(:last-child) {
-  padding-bottom: 22px
+  padding: 8px 0 22px 0
 }
 .block-content table {
   display: block;
@@ -2098,7 +2098,7 @@ body::after {
 .specs__doc h2,
 .specs__doc h3,
 .specs__doc h4 {
-  padding-bottom: 42px
+  padding: 20px 0 42px 0
 }
 .specs__doc--wrapper {
   display: flex;
@@ -2153,7 +2153,7 @@ body::after {
 .specs__content h2,
 .specs__content h3,
 .specs__content h4 {
-  padding-bottom: 42px
+  padding: 20px 0 42px 0
 }
 .specs__content.block-content ol,
 .specs__content.block-content p,
@@ -5686,7 +5686,7 @@ body::after {
   -webkit-column-gap: 32px;
   -moz-column-gap: 32px;
   column-gap: 32px;
-  padding-bottom: 56px
+  padding-bottom: 230px
 }
 .main__content {
   width: calc(53% - 16px)
@@ -5694,6 +5694,11 @@ body::after {
 .main__title {
   text-transform: uppercase;
   padding-bottom: 12px
+}
+.main__block {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative
 }
 .info-main {
   width: calc(46% - 16px);
@@ -5715,10 +5720,12 @@ body::after {
   margin-bottom: 12px
 }
 .menu-main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: stretch;
-  justify-content: flex-start;
-  margin: 0 0 0 -62px
+  justify-content: flex-start
 }
 .menu-main__link {
   min-width: 208px;
@@ -7531,11 +7538,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 14px
   }
 }
-@media (max-width:79.99875em) {
-  .menu-main {
-    margin: 0 0 0 -40px
-  }
-}
 @media (max-width:77.25em) {
   .our-products--mod .swiper-horizontal > .swiper-scrollbar {
     width: calc(75% - 6px)
@@ -7933,6 +7935,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     width: 100%;
     border-top: none
   }
+  .tabs__button {
+    padding: 32px 0
+  }
+  .tabs__button:last-child {
+    padding: 32px 24px 32px 0
+  }
   .tabs__info {
     padding: 42px 0 0 0
   }
@@ -7950,7 +7958,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .swiper-horizontal > .swiper-scrollbar {
     width: 100%;
-    top: 0
+    top: auto;
+    bottom: -18px
   }
   .our-products--mod .swiper-horizontal > .swiper-scrollbar {
     width: 100%;
@@ -8198,6 +8207,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     border-top: 4px solid transparent;
     color: #131516
   }
+  .specs__item:last-child {
+    padding: 0 16px 0 0
+  }
   .specs__link {
     padding: 20px 0
   }
@@ -8242,8 +8254,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-bottom: 125%
   }
   .our-products__title--top {
-    width: 100%;
-    padding-bottom: 24px
+    width: 100%
   }
   .our-products__button--btn-wh {
     margin: 60px 0 0 0
@@ -9202,7 +9213,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .main__wrapper {
     flex-direction: column;
     row-gap: 34px;
-    padding-bottom: 210px
+    padding-bottom: 370px
   }
   .main__content {
     width: 100%
@@ -9218,8 +9229,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-left: 0
   }
   .menu-main {
-    width: calc(100% + 80px);
-    margin: 0 -40px;
+    width: 100%;
     justify-content: space-between
   }
   .menu-main__link {
@@ -9595,6 +9605,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .tabs__navigation {
     padding: 0 16px 0 0
   }
+  .tabs__button:last-child {
+    padding: 32px 16px 32px 0
+  }
   .tabs__info {
     padding: 10px 0 0 0
   }
@@ -9622,7 +9635,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .block-content h2:not(:last-child),
   .block-content h3:not(:last-child),
   .block-content h4:not(:last-child) {
-    padding-bottom: 16px
+    padding: 22px 0 16px 0
   }
   .block-content h1 {
     font-size: 32px;
@@ -9653,6 +9666,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .block-content table tr td:nth-child(2) {
     padding: 12px 12px 12px 6px;
     width: 47%
+  }
+  .swiper-horizontal > .swiper-scrollbar {
+    top: 0;
+    bottom: auto
+  }
+  .our-products--mod .swiper-horizontal > .swiper-scrollbar {
+    top: 0;
+    bottom: auto
   }
   .pagination__list--hide {
     display: none
@@ -9786,7 +9807,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .specs__doc h2,
   .specs__doc h3,
   .specs__doc h4 {
-    padding-bottom: 24px
+    padding: 22px 0 24px 0
   }
   .specs__doc h1 {
     font-size: 32px;
@@ -9818,7 +9839,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .specs__content h2,
   .specs__content h3,
   .specs__content h4 {
-    padding-bottom: 24px
+    padding: 22px 0 24px 0
   }
   .specs__content h1 {
     font-size: 32px;
@@ -9911,6 +9932,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .our-products {
     padding: 64px 0
+  }
+  .our-products__top--main.top {
+    padding-bottom: 32px
   }
   .our-products--home .blog-item__image {
     padding-bottom: 117%
@@ -11066,6 +11090,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     margin: 0 0 74px 0;
     padding: 64px 0 64px 0
   }
+  .quality--mod .quality__title {
+    padding-bottom: 32px;
+    border-bottom: none
+  }
   .quality--mod .catalogue-block__wrapper {
     margin: 0 0 -138px 0;
     row-gap: 42px;
@@ -11226,7 +11254,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     transform: translate(0,0)
   }
   .main__wrapper {
-    padding-bottom: 144px;
+    padding-bottom: 504px;
     row-gap: 42px
   }
   .main__title {
@@ -11248,9 +11276,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     height: 32px
   }
   .menu-main {
-    flex-wrap: wrap;
-    width: calc(100% + 32px);
-    margin: 0 -16px
+    flex-wrap: wrap
   }
   .menu-main__link {
     width: 50%
