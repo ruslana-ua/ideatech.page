@@ -7917,7 +7917,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 0 40px
   }
   .tabs__wrap .simplebar-track {
-    margin: 0 0 0 40px
+    margin: 0 0 0 40px;
+    right: 40px
   }
   .tabs__wrap .simplebar-wrapper {
     position: relative
@@ -9597,6 +9598,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 0 16px
   }
   .tabs__wrap .simplebar-track {
+    right: 16px;
     margin: 0 0 0 16px
   }
   .tabs__wrap .simplebar-wrapper::before {
